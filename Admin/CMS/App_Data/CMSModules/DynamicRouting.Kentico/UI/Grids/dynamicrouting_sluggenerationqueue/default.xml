@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+  <actions parameters="SlugGenerationQueueID" showheader="false">
+    <action name="edit" caption="$general.edit$" fonticonclass="icon-edit" fonticonstyle="allow" />
+    <action name="run" caption="Run" fonticonclass="icon-triangle-right" fonticonstyle="allow" />
+  </actions>
+  <columns>
+    <column source="SlugGenerationQueueID" caption="$general.id$" wrap="false"></column>
+    <column source="SlugGenerationQueueLastModified" caption="$general.lastmodified$" wrap="false"></column>
+    <column source="SlugGenerationQueueStarted" caption="Started" wrap="false"></column>
+    <column source="SlugGenerationQueueRunning" caption="Is Running" externalsourcename="#yesno" wrap="false"></column>
+    <column source="SlugGenerationQueueEnded" caption="Ended" wrap="false"></column>
+    <column source="SlugGenerationQueueErrors" caption="Has Errors" externalsourcename="HasErrors" wrap="false"></column>
+    <column cssclass="filling-column" />
+  </columns>
+  <objecttype name="dynamicrouting.sluggenerationqueue" columns="SlugGenerationQueueID,SlugGenerationQueueLastModified,SlugGenerationQueueStarted,SlugGenerationQueueRunning,SlugGenerationQueueEnded,SlugGenerationQueueErrors" />
+</grid>

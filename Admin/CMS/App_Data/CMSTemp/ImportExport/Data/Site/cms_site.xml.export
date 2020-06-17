@@ -1,0 +1,17 @@
+﻿<cms_site version="12.0">
+  <NewDataSet>
+    <cms_site>
+      <SiteID>1</SiteID>
+      <SiteName>Baseline</SiteName>
+      <SiteDisplayName>Baseline</SiteDisplayName>
+      <SiteStatus>RUNNING</SiteStatus>
+      <SiteDomainName>admin.kentico12baseline.hbstest.net</SiteDomainName>
+      <SiteGUID>c148fcb2-837a-4a94-bcb2-a8193ced806a</SiteGUID>
+      <SiteLastModified>2019-12-02T21:36:32.2156107-06:00</SiteLastModified>
+      <SiteIsOffline>false</SiteIsOffline>
+      <SiteOfflineMessage></SiteOfflineMessage>
+      <SitePresentationURL>http://kentico12baseline.hbstest.net</SitePresentationURL>
+      <SiteIsContentOnly>true</SiteIsContentOnly>
+    </cms_site>
+  </NewDataSet>
+</cms_site>

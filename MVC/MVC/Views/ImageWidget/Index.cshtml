@@ -1,0 +1,15 @@
+﻿@using Models.InlineEditors
+@model Generic.ViewModels.ImageWidgetViewModel
+
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+    Html.RenderPartial("InlineEditors/_ImageUploaderEditor", new ImageUploaderEditorViewModel
+    {
+        PropertyName = nameof(ImageWidgetProperties.ImageGuid),
+        HasImage = Model.ImageGuid != null && Model.ImageGuid != Guid.Empty,
+        ImageType = Model.ImageType
+    });
+}
+@if (!string.IsNullOrWhiteSpace(Model.ImageUrl)) {
+    <img src="@Url.Content(Model.ImageUrl)" alt="@Model.Alt" class="@Model.CssClass" />
+}

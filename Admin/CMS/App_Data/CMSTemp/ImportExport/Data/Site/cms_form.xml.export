@@ -1,0 +1,102 @@
+﻿<cms_form version="12.0">
+  <NewDataSet>
+    <cms_form>
+      <FormID>1</FormID>
+      <FormDisplayName>Contact Us</FormDisplayName>
+      <FormName>ContactUs</FormName>
+      <FormEmailAttachUploadedDocs>true</FormEmailAttachUploadedDocs>
+      <FormClassID>5511</FormClassID>
+      <FormItems>1</FormItems>
+      <FormDisplayText>Thank you for your submission.</FormDisplayText>
+      <FormClearAfterSave>false</FormClearAfterSave>
+      <FormSubmitButtonText>Submit</FormSubmitButtonText>
+      <FormSiteID>1</FormSiteID>
+      <FormGUID>f537ffce-e4f3-4870-a5fe-dc0f6fb4050e</FormGUID>
+      <FormLastModified>2020-06-02T16:53:03.3100149-05:00</FormLastModified>
+      <FormLogActivity>true</FormLogActivity>
+      <FormDevelopmentModel>1</FormDevelopmentModel>
+      <FormBuilderLayout>{
+  "editableAreas": [
+    {
+      "identifier": "DefaultFormBuilderArea",
+      "sections": [
+        {
+          "identifier": "00000000-0000-0000-0000-000000000000",
+          "type": "Kentico.DefaultSection",
+          "zones": [
+            {
+              "identifier": "52c43415-2c31-4f35-b4f7-570173585a6a",
+              "formComponents": [
+                {
+                  "identifier": "0e7afe8d-afe3-4855-b3e9-31731dd5400a"
+                },
+                {
+                  "identifier": "e2c60115-4221-468f-b677-5cffbab77dd0"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}</FormBuilderLayout>
+    </cms_form>
+    <cms_class>
+      <ClassID>5511</ClassID>
+      <ClassDisplayName>Contact Us</ClassDisplayName>
+      <ClassName>BizForm.ContactUs</ClassName>
+      <ClassUsesVersioning>false</ClassUsesVersioning>
+      <ClassIsDocumentType>false</ClassIsDocumentType>
+      <ClassIsCoupledClass>true</ClassIsCoupledClass>
+      <ClassXmlSchema>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"&gt;
+  &lt;xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true"&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+        &lt;xs:element name="Form_Baseline_ContactUs"&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name="ContactUsID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" /&gt;
+              &lt;xs:element name="FormInserted" type="xs:dateTime" /&gt;
+              &lt;xs:element name="FormUpdated" type="xs:dateTime" /&gt;
+              &lt;xs:element name="Email" minOccurs="0"&gt;
+                &lt;xs:simpleType&gt;
+                  &lt;xs:restriction base="xs:string"&gt;
+                    &lt;xs:maxLength value="500" /&gt;
+                  &lt;/xs:restriction&gt;
+                &lt;/xs:simpleType&gt;
+              &lt;/xs:element&gt;
+              &lt;xs:element name="Message"&gt;
+                &lt;xs:simpleType&gt;
+                  &lt;xs:restriction base="xs:string"&gt;
+                    &lt;xs:maxLength value="2147483647" /&gt;
+                  &lt;/xs:restriction&gt;
+                &lt;/xs:simpleType&gt;
+              &lt;/xs:element&gt;
+            &lt;/xs:sequence&gt;
+          &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+      &lt;/xs:choice&gt;
+    &lt;/xs:complexType&gt;
+    &lt;xs:unique name="Constraint1" msdata:PrimaryKey="true"&gt;
+      &lt;xs:selector xpath=".//Form_Baseline_ContactUs" /&gt;
+      &lt;xs:field xpath="ContactUsID" /&gt;
+    &lt;/xs:unique&gt;
+  &lt;/xs:element&gt;
+&lt;/xs:schema&gt;</ClassXmlSchema>
+      <ClassFormDefinition>&lt;form version="2"&gt;&lt;field column="ContactUsID" columntype="integer" guid="6e054d1b-cf30-4c90-b641-65887412a3c9" isPK="true" publicfield="false"&gt;&lt;properties&gt;&lt;fieldcaption&gt;ContactUsID&lt;/fieldcaption&gt;&lt;/properties&gt;&lt;settings&gt;&lt;controlname&gt;labelcontrol&lt;/controlname&gt;&lt;/settings&gt;&lt;/field&gt;&lt;field column="FormInserted" columnprecision="7" columntype="datetime" guid="8cc255ca-5d39-4e85-9712-52b466f02c0c" publicfield="false" system="true"&gt;&lt;properties&gt;&lt;fieldcaption&gt;Form inserted&lt;/fieldcaption&gt;&lt;/properties&gt;&lt;settings&gt;&lt;controlname&gt;calendarcontrol&lt;/controlname&gt;&lt;/settings&gt;&lt;/field&gt;&lt;field column="FormUpdated" columnprecision="7" columntype="datetime" guid="56261440-1724-4af6-b8b9-77ecc97d29c1" publicfield="false" system="true"&gt;&lt;properties&gt;&lt;fieldcaption&gt;Form updated&lt;/fieldcaption&gt;&lt;/properties&gt;&lt;settings&gt;&lt;controlname&gt;calendarcontrol&lt;/controlname&gt;&lt;/settings&gt;&lt;/field&gt;&lt;field allowempty="true" column="Email" columnsize="500" columntype="text" fieldtype="Unknown" guid="0e7afe8d-afe3-4855-b3e9-31731dd5400a" visible="true"&gt;&lt;properties&gt;&lt;fieldcaption&gt;Email&lt;/fieldcaption&gt;&lt;smart&gt;False&lt;/smart&gt;&lt;/properties&gt;&lt;settings&gt;&lt;componentidentifier&gt;Kentico.EmailInput&lt;/componentidentifier&gt;&lt;/settings&gt;&lt;/field&gt;&lt;field column="Message" columntype="longtext" fieldtype="Unknown" guid="e2c60115-4221-468f-b677-5cffbab77dd0" visible="true"&gt;&lt;properties&gt;&lt;fieldcaption&gt;Message&lt;/fieldcaption&gt;&lt;smart&gt;False&lt;/smart&gt;&lt;/properties&gt;&lt;settings&gt;&lt;componentidentifier&gt;Kentico.TextArea&lt;/componentidentifier&gt;&lt;/settings&gt;&lt;/field&gt;&lt;/form&gt;</ClassFormDefinition>
+      <ClassNodeNameSource></ClassNodeNameSource>
+      <ClassTableName>Form_Baseline_ContactUs</ClassTableName>
+      <ClassShowAsSystemTable>false</ClassShowAsSystemTable>
+      <ClassLastModified>2020-06-02T16:52:41.1995731-05:00</ClassLastModified>
+      <ClassGUID>a59aa533-3ba6-495f-a757-dd60a45362e6</ClassGUID>
+      <ClassIsCustomTable>false</ClassIsCustomTable>
+      <ClassSearchCreationDateColumn>FormInserted</ClassSearchCreationDateColumn>
+      <ClassSearchSettings>&lt;search&gt;&lt;item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="3f1d48ad-04dc-439f-8551-d9c3c1fcbb1b" name="ContactUsID" searchable="True" tokenized="False" /&gt;&lt;item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="9ed40ee0-799f-4e2e-836c-8242f5eed2b9" name="FormUpdated" searchable="True" tokenized="False" /&gt;&lt;item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="c2d99526-3c7d-4f8d-ae32-e7aeeff8139c" name="FormInserted" searchable="True" tokenized="False" /&gt;&lt;/search&gt;</ClassSearchSettings>
+      <ClassSearchEnabled>true</ClassSearchEnabled>
+      <ClassVersionGUID>4bca9b92-8410-4537-ba64-5fd5fd21cbd0</ClassVersionGUID>
+      <ClassIsForm>true</ClassIsForm>
+    </cms_class>
+  </NewDataSet>
+</cms_form>

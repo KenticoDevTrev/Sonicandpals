@@ -1,0 +1,44 @@
+﻿<cms_info version="12.0">
+  <NewDataSet>
+    <cms_info>
+      <Key>machinename</Key>
+      <Value>HBS-TFAYAS05</Value>
+    </cms_info>
+    <cms_info>
+      <Key>domainname</Key>
+      <Value>admin.kentico12baseline.hbstest.net</Value>
+    </cms_info>
+    <cms_info>
+      <Key>currentuser</Key>
+      <Value>administrator</Value>
+    </cms_info>
+    <cms_info>
+      <Key>starttime</Key>
+      <Value>6/4/2020 12:28:07 PM</Value>
+    </cms_info>
+    <cms_info>
+      <Key>systemversion</Key>
+      <Value>12.0.7447.28882</Value>
+    </cms_info>
+    <cms_info>
+      <Key>hotfixversion</Key>
+      <Value>71</Value>
+    </cms_info>
+    <cms_info>
+      <Key>webapplication</Key>
+      <Value>True</Value>
+    </cms_info>
+    <cms_info>
+      <Key>historyname</Key>
+      <Value>Baseline-Site.zip</Value>
+    </cms_info>
+    <cms_info>
+      <Key>historydate</Key>
+      <Value>6/2/2020 5:22:15 PM</Value>
+    </cms_info>
+    <cms_info>
+      <Key>siteincluded</Key>
+      <Value>True</Value>
+    </cms_info>
+  </NewDataSet>
+</cms_info>

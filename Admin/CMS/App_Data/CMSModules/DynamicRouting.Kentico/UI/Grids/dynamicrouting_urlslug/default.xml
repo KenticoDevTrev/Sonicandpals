@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+  
+  <actions parameters="UrlSlugID" showheader="false">
+    <action name="edit" caption="$General.Edit$" fonticonclass="icon-edit" fonticonstyle="allow" />
+  </actions>
+  <columns>
+    <column source="UrlSlugCultureCode" caption="$general.culture$" wrap="false"></column>
+    <column source="UrlSlugIsCustom" caption="$general.custom$" externalsourcename="#yesno" wrap="false"></column>
+    <column source="UrlSlug" caption="$dynamicrouting.urlslug$" wrap="false"></column>
+    <column source="UrlSlugLastModified" caption="$general.lastmodified$" wrap="false"></column>
+    <column cssclass="filling-column" />
+  </columns>
+  <objecttype name="dynamicrouting.urlslug" columns="*" />
+</grid>

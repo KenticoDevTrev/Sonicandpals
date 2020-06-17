@@ -1,0 +1,23 @@
+﻿@model GenericPage
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    PageMetaData MetaData = Model.GetPageTypeComponent<PageMetaData>(PageMetaData.CLASS_NAME.Replace(".", "_"));
+    ViewBag.Title = (MetaData != null ? MetaData.Title : Model.DocumentName);
+}
+@section head {
+    @* passing a new ViewDataDictionary() as if you don't, it assumes the "type" passed is th same as your view's model type, causing 500 error *@
+    @{Html.RenderPartial("Components/PageMetaData", MetaData, new ViewDataDictionary());}
+    @{Html.RenderAction("BreadcrumbJsonLD", "Navigation");}
+}
+@{Html.RenderAction("Breadcrumbs", "Navigation");}
+
+<div class="row">
+    <div class="col-sm-3">
+        @{Html.RenderAction("SecondaryNavigation", "Navigation");}
+    </div>
+    <div class="col-sm-9">
+        @Html.Kentico().EditableArea("main", allowedWidgets: UserWidgetProvider.GetUserAllowedWidgets())
+    </div>
+</div>
+
+
