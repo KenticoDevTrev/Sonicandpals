@@ -1,0 +1,594 @@
+[2021-02-25 21:58:41] Initializing hotfix...
+[2021-02-25 21:58:46] Testing DB connection.
+[2021-02-25 21:58:46] Service "KenticoCMSHealthMonitor(Sonicandpals)" is being uninstalled.
+[2021-02-25 21:58:46] Service control returned exit code "1060" when uninstalling service "KenticoCMSHealthMonitor(Sonicandpals)".
+[2021-02-25 21:58:46] Copying files...
+[2021-02-25 21:58:46] CMS\CMS\App_Data\Install
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\App_Data\Install\SQL.zip
+[2021-02-25 21:58:46] CMS\CMS\App_Data
+[2021-02-25 21:58:46] CMS\CMS\App_Themes\Default\CMSComponents
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\App_Themes\Default\CMSComponents\calendar.less
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\App_Themes\Default\CMSComponents\tree.less
+[2021-02-25 21:58:46] CMS\CMS\App_Themes\Default\Images
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\App_Themes\Default\Images\Images.zip
+[2021-02-25 21:58:46] CMS\CMS\App_Themes\Default
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\App_Themes\Default\bootstrap.css
+[2021-02-25 21:58:46] CMS\CMS\App_Themes
+[2021-02-25 21:58:46] CMS\CMS\CMSAdminControls\UI
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSAdminControls\UI\Header.ascx.cs
+[2021-02-25 21:58:46] CMS\CMS\CMSAdminControls
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\BizForms\FormControls\Cloning
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\BizForms\FormControls\Cloning\CMS_FormSettings.ascx
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\BizForms\FormControls
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\BizForms
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\Content\CMSDesk
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\Content\CMSDesk\Content.js
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\Content\Controls\Filters
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\Content\Controls\Filters\RecycleBinFilter.ascx
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\Content\Controls
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\Content
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\DocumentTypes\Pages\Development
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\DocumentTypes\Pages\Development\DocumentType_Edit_SearchFields.aspx.cs
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\DocumentTypes\Pages
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\DocumentTypes
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\EmailQueue
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\EmailQueue\EmailQueue.aspx.cs
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\EmailQueue\SendEmail.aspx.cs
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\EmailQueue\SentEmails.aspx.cs
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\ImportExport\Controls\Import
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\ImportExport\Controls\Import\__objects__.ascx.cs
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\ImportExport\Controls
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\ImportExport
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\MediaLibrary\Controls\Dialogs
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\MediaLibrary\Controls\Dialogs\LinkMediaSelector.ascx.cs
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\MediaLibrary\Controls
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\MediaLibrary
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\Membership\Pages\Users\General\User_MassEmail.aspx.cs
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\Membership\Pages\Users
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\Membership\Pages\Users\User_Edit_Membership.aspx
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\Membership\Pages\Users\User_Edit_Membership.aspx.cs
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\Membership\Pages
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\Membership
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\Newsletters\Tools\Newsletters
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\Newsletters\Tools\Newsletters\Newsletter_List.aspx
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\Newsletters\Tools\Newsletters\Newsletter_List.aspx.cs
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\Newsletters\Tools\Newsletters\Newsletter_List.aspx.designer.cs
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\Newsletters\Tools
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\Newsletters
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\SmartSearch\Controls\UI
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\SmartSearch\Controls\UI\SearchIndex_General.ascx
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSModules\SmartSearch\Controls\UI\SearchIndex_General.ascx.cs
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\SmartSearch\Controls
+[2021-02-25 21:58:46] CMS\CMS\CMSModules\SmartSearch
+[2021-02-25 21:58:46] CMS\CMS\CMSModules
+[2021-02-25 21:58:46] CMS\CMS\CMSResources
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSResources\Hotfix.resx
+[2021-02-25 21:58:46] CMS\CMS\CMSScripts\CMSModules\CMS
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSScripts\CMSModules\CMS\VirtualContextAuthenticator.js
+[2021-02-25 21:58:46] CMS\CMS\CMSScripts\CMSModules\CMS.Builder
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSScripts\CMSModules\CMS.Builder\Constants.js
+[2021-02-25 21:58:46] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSScripts\CMSModules\CMS.Builder\FrameLoader.js
+[2021-02-25 21:58:46] CMS\CMS\CMSScripts\CMSModules
+[2021-02-25 21:58:46] CMS\CMS\CMSScripts
+[2021-02-25 21:58:46] CMS\CMS
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSApp.csproj
+[2021-02-25 21:58:49] CMS
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\GlobalAssemblyInfo.cs
+[2021-02-25 21:58:49] DLLs\Net48
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Activities.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Activities.Loggers.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Activities.Loggers.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Activities.Web.UI.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Activities.Web.UI.XML
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Activities.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.AmazonStorage.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.AmazonStorage.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.ApplicationDashboard.Web.UI.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.ApplicationDashboard.Web.UI.XML
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.AspNet.Platform.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.AspNet.Platform.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Automation.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Automation.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.AzureStorage.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.AzureStorage.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Base.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Base.Web.UI.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Base.Web.UI.XML
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Base.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.ContactManagement.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.ContactManagement.Web.UI.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.ContactManagement.Web.UI.XML
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.ContactManagement.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.ContinuousIntegration.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.ContinuousIntegration.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Core.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Core.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.CustomTables.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.CustomTables.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.DataEngine.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.DataEngine.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.DataProtection.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.DataProtection.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.DocumentEngine.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.DocumentEngine.Web.UI.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.DocumentEngine.Web.UI.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.DocumentEngine.Web.UI.XmlSerializers.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.DocumentEngine.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.DocumentWebServices.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.DocumentWebServices.XML
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.EmailEngine.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.EmailEngine.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.EventLog.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.EventLog.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.FormEngine.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.FormEngine.Web.UI.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.FormEngine.Web.UI.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.FormEngine.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Globalization.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Globalization.Web.UI.dll
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Globalization.Web.UI.XML
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Globalization.xml
+[2021-02-25 21:58:49] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Helpers.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Helpers.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.ImportExport.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.ImportExport.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.IO.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.IO.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.LicenseProvider.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.LicenseProvider.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.MacroEngine.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.MacroEngine.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Membership.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Membership.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Membership.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Membership.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.MembershipProvider.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.MembershipProvider.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Modules.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Modules.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Modules.Web.UI.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Modules.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.ModuleUsageTracking.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.ModuleUsageTracking.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.OnlineForms.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.OnlineForms.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.OnlineForms.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.OnlineForms.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.PortalEngine.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.PortalEngine.Web.UI.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Protection.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Protection.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Relationships.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Relationships.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.ResponsiveImages.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.ResponsiveImages.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Routing.Web.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Routing.Web.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Scheduler.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Scheduler.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Search.Azure.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Search.Azure.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Search.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Search.Lucene3.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Search.Lucene3.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Search.TextExtractors.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Search.TextExtractors.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Search.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Search.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Search.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SiteProvider.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SiteProvider.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Synchronization.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Synchronization.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Synchronization.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Synchronization.WSE3.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Synchronization.WSE3.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Synchronization.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SynchronizationEngine.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SynchronizationEngine.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Taxonomy.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Taxonomy.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.TranslationServices.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.TranslationServices.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.TranslationServices.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.TranslationServices.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.UIControls.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.UIControls.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.URLRewritingEngine.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.URLRewritingEngine.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.VirtualPathProvider.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.VirtualPathProvider.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WebAnalytics.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WebAnalytics.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WebAnalytics.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WebAnalytics.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WebApi.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WebApi.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WebFarmSync.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WebFarmSync.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WebServices.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WebServices.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WorkflowEngine.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WorkflowEngine.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WorkflowEngine.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WorkflowEngine.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMSAppSetup.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMSAppTesting.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\ContinuousIntegration.exe
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\Lucene.Net.v3.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\Lucene.Net.WordNet.SynExpand.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\PDFClown.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\System.Text.Json.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\System.Text.Json.xml
+[2021-02-25 21:58:50] DLLs\Net48
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Activities.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Activities.Loggers.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Activities.Loggers.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Activities.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Activities.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Activities.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.AmazonStorage.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.AmazonStorage.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.ApplicationDashboard.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.ApplicationDashboard.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.AspNet.Platform.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.AspNet.Platform.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Automation.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Automation.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.AzureStorage.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.AzureStorage.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Base.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Base.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Base.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Base.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.ContactManagement.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.ContactManagement.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.ContactManagement.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.ContactManagement.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.ContinuousIntegration.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.ContinuousIntegration.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Core.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Core.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.CustomTables.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.CustomTables.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.DataEngine.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.DataEngine.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.DataProtection.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.DataProtection.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.DocumentEngine.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.DocumentEngine.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.DocumentEngine.Web.UI.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.DocumentEngine.Web.UI.XmlSerializers.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.DocumentEngine.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.DocumentWebServices.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.DocumentWebServices.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.EmailEngine.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.EmailEngine.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.EventLog.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.EventLog.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.FormEngine.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.FormEngine.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.FormEngine.Web.UI.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.FormEngine.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Globalization.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Globalization.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Globalization.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Globalization.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Helpers.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Helpers.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.ImportExport.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.ImportExport.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.IO.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.IO.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.LicenseProvider.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.LicenseProvider.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.MacroEngine.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.MacroEngine.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Membership.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Membership.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Membership.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Membership.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.MembershipProvider.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.MembershipProvider.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Modules.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Modules.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Modules.Web.UI.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Modules.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.ModuleUsageTracking.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.ModuleUsageTracking.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.OnlineForms.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.OnlineForms.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.OnlineForms.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.OnlineForms.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.PortalEngine.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.PortalEngine.Web.UI.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Protection.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Protection.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Relationships.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Relationships.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.ResponsiveImages.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.ResponsiveImages.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Routing.Web.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Routing.Web.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Scheduler.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Scheduler.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Search.Azure.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Search.Azure.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Search.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Search.Lucene3.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Search.Lucene3.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Search.TextExtractors.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Search.TextExtractors.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Search.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Search.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Search.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SiteProvider.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SiteProvider.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Synchronization.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Synchronization.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Synchronization.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Synchronization.WSE3.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Synchronization.WSE3.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Synchronization.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SynchronizationEngine.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SynchronizationEngine.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Taxonomy.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Taxonomy.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.TranslationServices.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.TranslationServices.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.TranslationServices.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.TranslationServices.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.UIControls.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.UIControls.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.URLRewritingEngine.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.URLRewritingEngine.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.VirtualPathProvider.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.VirtualPathProvider.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WebAnalytics.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WebAnalytics.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WebAnalytics.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WebAnalytics.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WebApi.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WebApi.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WebFarmSync.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WebFarmSync.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WebServices.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WebServices.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WorkflowEngine.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WorkflowEngine.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WorkflowEngine.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WorkflowEngine.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMSAppSetup.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMSAppTesting.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\ContinuousIntegration.exe
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\Lucene.Net.v3.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\Lucene.Net.WordNet.SynExpand.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\PDFClown.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\System.Text.Json.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\System.Text.Json.xml
+[2021-02-25 21:58:50] DLLs\Modules\Ecommerce\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Ecommerce.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Ecommerce.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Ecommerce.Web.UI.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Ecommerce.xml
+[2021-02-25 21:58:50] DLLs\Modules\Ecommerce\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Ecommerce.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Ecommerce.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Ecommerce.Web.UI.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Ecommerce.xml
+[2021-02-25 21:58:50] DLLs\Modules\MediaLibrary\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.MediaLibrary.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.MediaLibrary.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.MediaLibrary.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.MediaLibrary.xml
+[2021-02-25 21:58:50] DLLs\Modules\MediaLibrary\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.MediaLibrary.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.MediaLibrary.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.MediaLibrary.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.MediaLibrary.xml
+[2021-02-25 21:58:50] DLLs\Modules\Newsletters\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Newsletters.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Newsletters.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Newsletters.Web.UI.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Newsletters.xml
+[2021-02-25 21:58:50] DLLs\Modules\Newsletters\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Newsletters.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Newsletters.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Newsletters.Web.UI.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Newsletters.xml
+[2021-02-25 21:58:50] DLLs\Modules\OnlineMarketing\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.OnlineMarketing.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.OnlineMarketing.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.OnlineMarketing.Web.UI.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.OnlineMarketing.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SalesForce.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SalesForce.xml
+[2021-02-25 21:58:50] DLLs\Modules\OnlineMarketing\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.OnlineMarketing.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.OnlineMarketing.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.OnlineMarketing.Web.UI.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.OnlineMarketing.xml
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SalesForce.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SalesForce.xml
+[2021-02-25 21:58:50] DLLs\Modules\Personas\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Personas.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Personas.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Personas.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Personas.xml
+[2021-02-25 21:58:50] DLLs\Modules\Personas\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Personas.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Personas.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Personas.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Personas.xml
+[2021-02-25 21:58:50] DLLs\Modules\Reporting\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Reporting.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Reporting.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Reporting.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.Reporting.xml
+[2021-02-25 21:58:50] DLLs\Modules\Reporting\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Reporting.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Reporting.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Reporting.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.Reporting.xml
+[2021-02-25 21:58:50] DLLs\Modules\Sharepoint\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SharePoint.dll.config
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SharePoint.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SharePoint.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SharePoint.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SharePoint.xml
+[2021-02-25 21:58:50] DLLs\Modules\Sharepoint\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SharePoint.dll.config
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SharePoint.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SharePoint.Web.UI.dll
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SharePoint.Web.UI.XML
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SharePoint.xml
+[2021-02-25 21:58:50] DLLs\Modules\SocialMarketing\Net48\Lib
+[2021-02-25 21:58:50] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SocialMarketing.dll
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SocialMarketing.Web.UI.dll
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SocialMarketing.Web.UI.xml
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.SocialMarketing.xml
+[2021-02-25 21:58:51] DLLs\Modules\SocialMarketing\Net48\Lib
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SocialMarketing.dll
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SocialMarketing.Web.UI.dll
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SocialMarketing.Web.UI.xml
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.SocialMarketing.xml
+[2021-02-25 21:58:51] DLLs\Modules\Staging\Net48\Lib
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\Microsoft.Web.Services3.dll
+[2021-02-25 21:58:51] DLLs\Modules\Staging\Net48\Lib
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\Lib\Microsoft.Web.Services3.dll
+[2021-02-25 21:58:51] DLLs\Modules\WIFIntegration\Net48\Lib
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WIFIntegration.dll
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WIFIntegration.XML
+[2021-02-25 21:58:51] DLLs\Modules\WIFIntegration\Net48\Lib
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WIFIntegration.dll
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WIFIntegration.XML
+[2021-02-25 21:58:51] DLLs\Modules\WindowsServices\Net48\Lib
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WinServiceEngine.dll
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMS.WinServiceEngine.XML
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\SchedulerService.exe
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\SchedulerService.exe.config
+[2021-02-25 21:58:51] DLLs\Modules\WindowsServices\Net48\Lib
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WinServiceEngine.dll
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\Lib\CMS.WinServiceEngine.XML
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\Lib\SchedulerService.exe
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\Lib\SchedulerService.exe.config
+[2021-02-25 21:58:51] DLLs\Net48\App
+[2021-02-25 21:58:51] I:\Web\Sonicandpals\KenticoAdmin\CMS\bin\CMSApp.dll
+[2021-02-25 21:58:51] Upgrading nuget packages in: I:\Web\Sonicandpals\KenticoAdmin\CMS\CMSApp.csproj
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.CSharp (4.7.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Rx-Main (2.2.5)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Data.DataSetExtensions (4.5.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Runtime.Caching (4.5.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Runtime.Numerics (4.3.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Text.Json (4.7.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: AjaxControlToolkit (17.1.1.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: AjaxMin (5.14.5506.26202)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Runtime.CompilerServices.Unsafe (4.7.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Text.Encoding.CodePages (4.5.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: AngleSharp (0.14.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Net.Http (4.3.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: AWSSDK.Core (3.5.1.13)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: AWSSDK.S3 (3.5.1.4)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: DocumentFormat.OpenXml (2.7.2)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Facebook (6.4.2)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Runtime (4.3.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.IO (4.3.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Rx-Interfaces (2.2.5)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Rx-Core (2.2.5)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Rx-Linq (2.2.5)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: linqtotwitter (4.0.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: MaxMind.Db (2.6.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Newtonsoft.Json (12.0.3)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: MaxMind.GeoIP2 (3.2.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Data.Edm (5.8.4)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Spatial (5.8.4)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Data.OData (5.8.4)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Data.Services.Client (5.8.4)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Azure.ActiveDirectory.GraphClient (2.1.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Azure.KeyVault.Core (1.0.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Rest.ClientRuntime (2.3.20)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Rest.ClientRuntime.Azure (3.3.18)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Azure.Search.Common (10.1.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Spatial (7.5.3)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Azure.Search.Data (10.1.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Azure.Search.Service (10.1.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Azure.Search (10.1.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Azure.Storage.Common (11.2.2)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Azure.Storage.Blob (11.2.2)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Azure.Storage.Queue (11.2.2)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Threading.Tasks.Extensions (4.5.4)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Bcl.AsyncInterfaces (1.1.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.CodeDom.Providers.DotNetCompilerPlatform (2.0.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.SqlServer.DacFx (150.4573.2)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Numerics.Vectors (4.5.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Buffers (4.5.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Memory (4.5.4)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.Primitives (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.Caching.Abstractions (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.DependencyInjection.Abstractions (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.Options (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.Logging.Abstractions (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.Caching.Memory (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.Configuration.Abstractions (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.Configuration (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.Configuration.Binder (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.DependencyInjection (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.FileProviders.Abstractions (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.FileSystemGlobbing (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.FileProviders.Physical (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.Logging (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.Logging.Debug (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Extensions.Options.ConfigurationExtensions (3.1.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Graph.Core (1.14.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.Graph (1.14.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.IdentityModel (7.0.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.IdentityModel.Clients.ActiveDirectory (3.19.8)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.IdentityModel.Logging (6.7.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.IdentityModel.Tokens (6.7.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.IdentityModel.JsonWebTokens (6.7.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.SharePointOnline.CSOM (16.1.20412.12000)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.WindowsAzure.ConfigurationManager (2.0.2.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: WindowsAzure.Storage (7.0.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Mono.Cecil (0.10.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: NuGet.Common (5.3.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: NuGet.Configuration (5.3.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: NuGet.Frameworks (5.3.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: NuGet.Versioning (5.3.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: NuGet.Packaging (5.3.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: SharePointPnP.IdentityModel.Extensions (1.2.4)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.IdentityModel.Tokens.Jwt (6.7.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.AspNet.WebApi.Client (5.2.3)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.AspNet.WebApi.Core (5.2.3)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: SharePointPnPCoreOnline (3.23.2007)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: OpenPop.NET (2.0.6.1120)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: PayPal (1.8.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: PreMailer.Net (2.2.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.ComponentModel.Annotations (4.7.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Data.HashFunction.Interfaces (2.0.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Data.HashFunction.Core (2.0.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.ValueTuple (4.5.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Data.HashFunction.CRC (2.0.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Data.SqlClient (4.6.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.IO.FileSystem.Primitives (4.0.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.IO.Packaging (4.0.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Rx-PlatformServices (2.2.5)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Security.AccessControl (4.5.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Security.Cryptography.Algorithms (4.3.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Security.Cryptography.Encoding (4.3.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Security.Cryptography.Primitives (4.3.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Security.Cryptography.X509Certificates (4.3.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Security.Permissions (4.5.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.ServiceModel.Duplex (4.6.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.ServiceModel.Http (4.6.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.ServiceModel.NetTcp (4.6.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.ServiceModel.Primitives (4.6.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.ServiceModel.Security (4.6.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.ServiceModel.Syndication (4.5.0)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: System.Text.Encodings.Web (4.7.1)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Microsoft.AspNet.WebApi.WebHost (5.2.3)
+[2021-02-25 21:58:51] Creating binding redirect for nuget package: Ude.NetStandard (1.2.0)
+[2021-02-25 21:58:51] Running SQL script (Hotfix_separated.sql)
+[2021-02-25 21:58:51] SQL script applied.
+[2021-02-25 21:58:51] Running SQL script (Hotfix_default.sql)
+[2021-02-25 21:58:51] SQL script applied.
+[2021-02-25 21:58:51] All operations have been successfully finished.

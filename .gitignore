@@ -334,3 +334,7 @@ KenticoAdmin/CMS/*.webinfo
 
 # You can enable bin if for your pushing cycles you do not build and you wish to track BIN changes
 ## ![Bb]in/
+/Admin/CMS/Sap
+/episodes
+/MVC/MVC/Sap
+episodes.zip

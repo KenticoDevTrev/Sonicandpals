@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+  <actions parameters="ChapterID">
+    <action name="edit" caption="$General.Edit$" fonticonclass="icon-edit" fonticonstyle="allow" />
+    <action name="#delete" caption="$General.Delete$" fonticonclass="icon-bin" fonticonstyle="critical" confirmation="$general.confirmdelete$" />
+  </actions>
+  <massactions>
+    <massaction name="#delete" caption="$general.delete$" behavior="OpenModal" />
+  </massactions>
+  <columns>
+    <column source="ChapterTitle" caption="Title" wrap="false" localize="true">
+      <filter type="text" />
+    </column>
+    <column source="ChapterStartDate" caption="Start Date" wrap="false" localize="true">
+    </column>
+    <column source="ChapterStartEpisodeNumber" caption="Start Episode Number" wrap="false" localize="true">
+    </column>
+    <column cssclass="filling-column" />
+  </columns>
+  <objecttype name="sap.chapter" columns="ChapterID, ChapterTitle, ChapterStartDate, ChapterStartEpisodeNumber" />
+  <options>
+    <key name="DisplayFilter" value="true" />
+  </options>
+</grid>

@@ -1,0 +1,26 @@
+Episode / Selector Display
+
+	STATE:
+		-Current Episode #
+		-Current Sub Episode #
+		-Current Date
+		-SelectionMode (Episode or Date)
+	FUNCTIONS:
+		-HandleEpisodeChange (Set Episode to selection)
+		-HandleDateChange (Set Date to selection)
+		-HandleNext (Decrement Current Episode or Date based on SelectionMode)
+		-HandlePrevious (Increment Current Episode or Date based on SelectionMode)
+
+
+
+COMPONENT: Episode Select (Current Episode #, Current Sub #, EpisodeChange func)
+	-Renders out Episode # selection, which enters calls "EpisodeChanged"
+
+COMPONENT: Date Select (Current Date, List<Chapters>, Current Chapter, DateChange func)
+	-Renders out Calendar of current date with clicking on date calls "DateChange"
+
+COMPONENT: Comic Display (Episode #, Sub #, Date, SelectionMode)
+	-API to JSON and display
+
+COMPONENT: NextPreviousDisplay(IsNext, Episode#, Sub #, Date, SelectionMode, HandleNext, HandlePrevious)
+	-Next/Previous that call HandleNext, HandlePrevious
