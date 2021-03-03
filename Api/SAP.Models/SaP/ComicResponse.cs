@@ -8,5 +8,6 @@ namespace SAP.Models
     {
         public IEnumerable<Comic> Comics { get; set; } = new List<Comic>();
         public DateTime Date { get; set; }
+        public string Error { get; set; }
     }
 }

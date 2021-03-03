@@ -10,6 +10,9 @@ using System.Linq;
 using CMS.Core;
 using System.Net.Http;
 using CMS.Helpers;
+using System.IO;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace SAP.API
 {
@@ -23,16 +26,22 @@ namespace SAP.API
         public IEpisodeInfoProvider EpisodeInfoProvider { get; }
 
         [FunctionName("GetComics")]
+        [FixedDelayRetry(5, "00:00:02")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequestMessage req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
+            GetComicsRequest Request,
             ILogger log
             )
         {
-            GetComicsRequest Request = await req.Content.ReadAsAsync<GetComicsRequest>();
-
-            List<Comic> Comics = null;
+            string Error = "";
+            string Content = "";
+           List <Comic> Comics = null;
             try
             {
+                // For error testing
+                //Content = await new StreamReader(req.Body).ReadToEndAsync();
+                //GetComicsRequest Request = JsonConvert.DeserializeObject<GetComicsRequest>(Content);
+
                 Comics = CacheHelper.Cache(cs =>
                 {
                     bool ByEpisode = false;
@@ -86,7 +95,7 @@ namespace SAP.API
                         }
                     }
 
-                    if(cs.Cached)
+                    if (cs.Cached)
                     {
                         cs.CacheDependency = CacheHelper.GetCacheDependency(new string[]
                         {
@@ -108,19 +117,34 @@ namespace SAP.API
                         Title = Episode.EpisodeTitle,
                         IsAnimated = Episode.EpisodeIsAnimation
                     }).ToList();
-                }, new CacheSettings(30, "GetComics|"+Request.ToString()));
-                
+                }, new CacheSettings(30, "GetComics|" + Request.ToString()));
 
-            } catch(Exception ex)
+                var Response = new ComicResponse()
+                {
+                    Date = (Comics.Count > 0 ? Comics[0].Date : Request.Date != DateTimeHelper.ZERO_TIME ? Request.Date : DateTime.Now),
+                    Comics = Comics
+                };
+                return new JsonResult(Response);
+            }
+            catch (UnsupportedMediaTypeException ex)
+            {
+                log.LogError(ex, "Unsupported media type returned");
+                Error = "Unsupported Media Type: "+ex.Message+"|"+ex.StackTrace;
+            }
+            catch (Exception ex)
             {
                 log.LogError(ex.Message);
+                Error = "Error.  Content: " + Content + ", " + ex.Message + "|" + ex.StackTrace;
             }
-            var Response = new ComicResponse()
+
+            var ErrorResponse = new ComicResponse()
             {
-                Date = (Comics.Count > 0 ? Comics[0].Date : Request.Date != DateTimeHelper.ZERO_TIME ? Request.Date : DateTime.Now),
-                Comics = Comics
+                Date = DateTime.Now,
+                Comics = Comics,
+                Error = Error
             };
-            return new JsonResult(Response);
+            return new JsonResult(ErrorResponse);
+
         }
     }
 
@@ -133,7 +157,7 @@ namespace SAP.API
 
         public override string ToString()
         {
-            return $"{Type}|{IncludeCommentary.ToString()}|{EpisodeNumber}|{Date.ToString()}}"
+            return $"{Type}|{IncludeCommentary}|{EpisodeNumber}|{Date}";
         }
     }
 }

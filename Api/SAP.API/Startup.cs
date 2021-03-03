@@ -25,31 +25,50 @@ namespace MyNamespace
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            // Loads kentico libraries into the app domain
-            RegisterCmsAssemblies();
-
-            // Loads custom libraries into the app domain
-            RegisterCustomAssemblies();
-
-            // Prinit types
-            CMSApplication.PreInit();
-
-            // Merge kentico services into the builder services
-            Service.MergeDescriptors(builder.Services);
-
-            var Config = builder.GetContext().Configuration;
-            string EnvironmentName = builder.GetContext().EnvironmentName;
-            if (EnvironmentName.Equals("Development", StringComparison.InvariantCultureIgnoreCase))
+            string ConnectionString = "";
+            builder.Services.AddLogging();
+            var _loggerFactory = new LoggerFactory();
+            var logger = _loggerFactory.CreateLogger("Startup");
+            try
             {
-                // Setup connection string (manually or read frOm key/vault, settings file etc.)  This will read from local.settings.json -> ConnectionStrings.CMSConnectionString
-                ConnectionHelper.ConnectionString = Config.GetSection("ConnectionStrings").GetSection("CMSConnectionString").Value;
-            } else
+                // Loads kentico libraries into the app domain
+                RegisterCmsAssemblies();
+
+                // Loads custom libraries into the app domain
+                RegisterCustomAssemblies();
+
+                // Prinit types
+                CMSApplication.PreInit();
+
+                // Merge kentico services into the builder services
+                Service.MergeDescriptors(builder.Services);
+
+                var Config = builder.GetContext().Configuration;
+                string EnvironmentName = builder.GetContext().EnvironmentName;
+                
+                // Wait for database to be ready since this is a external service
+                CMSApplication.WaitForDatabaseAvailable.Value = true;
+
+                if (EnvironmentName.Equals("Development", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    // Setup connection string (manually or read frOm key/vault, settings file etc.)  This will read from local.settings.json -> ConnectionStrings.CMSConnectionString
+                    ConnectionString = Config.GetSection("ConnectionStrings").GetSection("CMSConnectionString").Value;
+                }
+                else
+                {
+                    // In Azure Functions, will be grabbing just the CMSConnectionString from the Azure Functio -> Configuration -> Application Settings
+                    ConnectionString = Environment.GetEnvironmentVariable("CMSConnectionString", EnvironmentVariableTarget.Process);
+                }
+                
+                // Set connection string
+                ConnectionHelper.ConnectionString = ConnectionString;
+
+                // Init database
+                CMSApplication.Init();
+            } catch(Exception ex)
             {
-                // In Azure Functions, will be grabbing just the CMSConnectionString from the Azure Functio -> Configuration -> Application Settings
-                ConnectionHelper.ConnectionString = Environment.GetEnvironmentVariable("CMSConnectionString", EnvironmentVariableTarget.Process);
+                logger.LogError(ex, "An error occurred during startup");
             }
-            // Init database
-            CMSApplication.Init();
         }
 
 
