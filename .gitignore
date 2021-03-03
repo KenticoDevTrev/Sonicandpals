@@ -338,3 +338,9 @@ KenticoAdmin/CMS/*.webinfo
 /episodes
 /MVC/MVC/Sap
 episodes.zip
+/Api/SAP.API/Properties/PublishProfiles/api-sonicandpals - Zip Deploy.pubxml
+/Api/SAP.API/Properties/PublishProfiles/FolderProfile.pubxml
+/Api/SAP.API/Properties/ServiceDependencies/api-sonicandpals - Zip Deploy/secrets1.arm.json
+/Api/SAP.API/Properties/ServiceDependencies/api-sonicandpals - Zip Deploy/profile.arm.json
+/Api/SAP.API/Properties/launchSettings.json
+/Api/SAP.API/Properties/serviceDependencies.api-sonicandpals - Zip Deploy.json

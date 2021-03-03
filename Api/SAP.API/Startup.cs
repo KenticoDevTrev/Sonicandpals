@@ -41,12 +41,12 @@ namespace MyNamespace
             string EnvironmentName = builder.GetContext().EnvironmentName;
             if (EnvironmentName.Equals("Development", StringComparison.InvariantCultureIgnoreCase))
             {
-                // Setup connection string (manually or read frOm key/vault, settings file etc.)
+                // Setup connection string (manually or read frOm key/vault, settings file etc.)  This will read from local.settings.json -> ConnectionStrings.CMSConnectionString
                 ConnectionHelper.ConnectionString = Config.GetSection("ConnectionStrings").GetSection("CMSConnectionString").Value;
             } else
             {
-                // In Azure Functions, will be grabbing just the CMSConnectionString value
-                ConnectionHelper.ConnectionString = Config.GetSection("CMSConnectionString").Value;
+                // In Azure Functions, will be grabbing just the CMSConnectionString from the Azure Functio -> Configuration -> Application Settings
+                ConnectionHelper.ConnectionString = Environment.GetEnvironmentVariable("CMSConnectionString", EnvironmentVariableTarget.Process);
             }
             // Init database
             CMSApplication.Init();
