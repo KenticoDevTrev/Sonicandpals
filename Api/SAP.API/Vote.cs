@@ -9,45 +9,43 @@ using System.Collections.Generic;
 using System.Linq;
 using CMS.Core;
 using System.Net.Http;
+using CMS.Helpers;
+using System.IO;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using SAP.Models.Interfaces;
 using SAP.Models.SaP;
 
 namespace SAP.API
 {
-    public class GetComics
+    public class Vote
     {
-        public GetComics(IComicRepository comicRepository)
+        public Vote(IComicRepository comicRepository)
         {
             ComicRepository = comicRepository;
         }
 
         public IComicRepository ComicRepository { get; }
 
-        [FunctionName("GetComics")]
+        [FunctionName("Vote")]
         [FixedDelayRetry(5, "00:00:02")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
-            GetComicsRequest Request,
+            VoteRequest Request,
+            HttpRequest req,
             ILogger log
             )
         {
             string Error = "";
             string Content = "";
-           List <Comic> Comics = null;
             try
             {
-                // For error testing
-                //Content = await new StreamReader(req.Body).ReadToEndAsync();
-                //GetComicsRequest Request = JsonConvert.DeserializeObject<GetComicsRequest>(Content);
-
-                Comics = ComicRepository.GetComics(Request).ToList();
-
-                var Response = new ComicResponse()
+                string IP = req.HttpContext.Connection.RemoteIpAddress.ToString();
+                var VoteSuccessful = ComicRepository.Vote(Request.EpisodeNumber, Request.EpisodeSubNumber, Request.StarRating, IP);
+                return new JsonResult(new VoteResponse()
                 {
-                    Date = (Comics.Count > 0 ? Comics[0].Date : Request.Date != DateTime.MinValue ? Request.Date : DateTime.Now),
-                    Comics = Comics
-                };
-                return new JsonResult(Response);
+                    Successful = VoteSuccessful
+                });
             }
             catch (UnsupportedMediaTypeException ex)
             {
@@ -60,10 +58,9 @@ namespace SAP.API
                 Error = "Error.  Content: " + Content + ", " + ex.Message + "|" + ex.StackTrace;
             }
 
-            var ErrorResponse = new ComicResponse()
+            var ErrorResponse = new VoteResponse()
             {
-                Date = DateTime.Now,
-                Comics = Comics,
+                Successful = false,
                 Error = Error
             };
             return new JsonResult(ErrorResponse);
@@ -71,8 +68,15 @@ namespace SAP.API
         }
     }
 
-    public class GetComicsRequest : ComicQuery
+    public class VoteRequest
     {
-      
+        public int EpisodeNumber { get; set; }
+        public int? EpisodeSubNumber { get; set; }
+        public int StarRating { get; set; }
+
+        public override string ToString()
+        {
+            return $"{EpisodeNumber}|{EpisodeSubNumber ?? 0}|{StarRating}";
+        }
     }
 }

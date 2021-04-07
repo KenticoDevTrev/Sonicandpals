@@ -12,6 +12,7 @@ namespace SAP.Models
         public int? EpisodeSubNumber { get; set; }
         public string Chapter { get; set; }
         public bool IsAnimated { get; set; }
+        public double AverageRating { get; set; } = 0;
         public Comic()
         {
         }

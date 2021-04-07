@@ -9,25 +9,29 @@ using System.Collections.Generic;
 using System.Linq;
 using CMS.Core;
 using System.Net.Http;
+using CMS.Helpers;
+using System.IO;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using SAP.Models.Interfaces;
 using SAP.Models.SaP;
 
 namespace SAP.API
 {
-    public class GetComics
+    public class GetTodaysComics
     {
-        public GetComics(IComicRepository comicRepository)
+        public GetTodaysComics(IComicRepository comicRepository)
         {
             ComicRepository = comicRepository;
         }
 
         public IComicRepository ComicRepository { get; }
 
-        [FunctionName("GetComics")]
+        [FunctionName("GetTodaysComics")]
         [FixedDelayRetry(5, "00:00:02")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
-            GetComicsRequest Request,
+            GetTodaysComicsRequest Request,
             ILogger log
             )
         {
@@ -40,11 +44,11 @@ namespace SAP.API
                 //Content = await new StreamReader(req.Body).ReadToEndAsync();
                 //GetComicsRequest Request = JsonConvert.DeserializeObject<GetComicsRequest>(Content);
 
-                Comics = ComicRepository.GetComics(Request).ToList();
+                Comics = ComicRepository.GetTodaysComics().ToList();
 
                 var Response = new ComicResponse()
                 {
-                    Date = (Comics.Count > 0 ? Comics[0].Date : Request.Date != DateTime.MinValue ? Request.Date : DateTime.Now),
+                    Date = (Comics.Count > 0 ? Comics[0].Date : DateTime.Now),
                     Comics = Comics
                 };
                 return new JsonResult(Response);
@@ -71,7 +75,7 @@ namespace SAP.API
         }
     }
 
-    public class GetComicsRequest : ComicQuery
+    public class GetTodaysComicsRequest
     {
       
     }

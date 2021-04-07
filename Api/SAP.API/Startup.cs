@@ -17,6 +17,8 @@ using System;
 using Microsoft.Extensions.DependencyInjection;
 using SAP;
 using System.Collections.Generic;
+using SAP.Models.Interfaces;
+using SAP.Library.Implementations;
 
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 namespace MyNamespace
@@ -65,7 +67,13 @@ namespace MyNamespace
 
                 // Init database
                 CMSApplication.Init();
-            } catch(Exception ex)
+
+                builder.Services.AddSingleton<IPageRepository, PageRepository>();
+                builder.Services.AddSingleton<IComicRepository, ComicRepository>();
+
+
+            }
+            catch (Exception ex)
             {
                 logger.LogError(ex, "An error occurred during startup");
             }

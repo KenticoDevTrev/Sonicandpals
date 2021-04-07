@@ -9,45 +9,42 @@ using System.Collections.Generic;
 using System.Linq;
 using CMS.Core;
 using System.Net.Http;
+using CMS.Helpers;
+using System.IO;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using SAP.Models.Interfaces;
 using SAP.Models.SaP;
 
 namespace SAP.API
 {
-    public class GetComics
+    public class GetPage
     {
-        public GetComics(IComicRepository comicRepository)
+        public GetPage(IPageRepository pageRepository)
         {
-            ComicRepository = comicRepository;
+            PageRepository = pageRepository;
         }
 
-        public IComicRepository ComicRepository { get; }
+        public IPageRepository PageRepository { get; }
 
-        [FunctionName("GetComics")]
+        [FunctionName("GetPage")]
         [FixedDelayRetry(5, "00:00:02")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
-            GetComicsRequest Request,
+            GetPageRequest Request,
             ILogger log
             )
         {
             string Error = "";
             string Content = "";
-           List <Comic> Comics = null;
             try
             {
-                // For error testing
-                //Content = await new StreamReader(req.Body).ReadToEndAsync();
-                //GetComicsRequest Request = JsonConvert.DeserializeObject<GetComicsRequest>(Content);
-
-                Comics = ComicRepository.GetComics(Request).ToList();
-
-                var Response = new ComicResponse()
+                
+                var Page = PageRepository.GetPage(Request.PageIdentifier);
+                return new JsonResult(new PageResponse()
                 {
-                    Date = (Comics.Count > 0 ? Comics[0].Date : Request.Date != DateTime.MinValue ? Request.Date : DateTime.Now),
-                    Comics = Comics
-                };
-                return new JsonResult(Response);
+                    Page = Page
+                });
             }
             catch (UnsupportedMediaTypeException ex)
             {
@@ -60,10 +57,9 @@ namespace SAP.API
                 Error = "Error.  Content: " + Content + ", " + ex.Message + "|" + ex.StackTrace;
             }
 
-            var ErrorResponse = new ComicResponse()
+            var ErrorResponse = new PageResponse()
             {
-                Date = DateTime.Now,
-                Comics = Comics,
+                Page = null,
                 Error = Error
             };
             return new JsonResult(ErrorResponse);
@@ -71,8 +67,13 @@ namespace SAP.API
         }
     }
 
-    public class GetComicsRequest : ComicQuery
+    public class GetPageRequest
     {
-      
+        public Guid PageIdentifier { get; set; }
+
+        public override string ToString()
+        {
+            return $"{PageIdentifier}";
+        }
     }
 }
