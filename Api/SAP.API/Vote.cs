@@ -15,6 +15,9 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using SAP.Models.Interfaces;
 using SAP.Models.SaP;
+using NWebsec.AspNetCore.Core.Web;
+using System.Net;
+using Microsoft.Extensions.Primitives;
 
 namespace SAP.API
 {
@@ -40,7 +43,19 @@ namespace SAP.API
             string Content = "";
             try
             {
-                string IP = req.HttpContext.Connection.RemoteIpAddress.ToString();
+                IPAddress result = null;
+                if (req.Headers.TryGetValue("X-Forwarded-For", out StringValues values))
+                {
+                    var ipn = values.FirstOrDefault().Split(new char[] { ',' }).FirstOrDefault().Split(new char[] { ':' }).FirstOrDefault();
+                    IPAddress.TryParse(ipn, out result);
+                }
+                if (result == null)
+                {
+                    result = req.HttpContext.Connection.RemoteIpAddress;
+                }
+                string IP = result?.ToString();
+
+
                 var VoteSuccessful = ComicRepository.Vote(Request.EpisodeNumber, Request.EpisodeSubNumber, Request.StarRating, IP);
                 return new JsonResult(new VoteResponse()
                 {
@@ -66,6 +81,7 @@ namespace SAP.API
             return new JsonResult(ErrorResponse);
 
         }
+        
     }
 
     public class VoteRequest

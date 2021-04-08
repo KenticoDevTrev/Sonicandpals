@@ -169,6 +169,24 @@ namespace SAP.Library.Implementations
 
         public bool Vote(int EpisodeNumber, int? EpisodeSubNumber, int Rating, string IPAddress)
         {
+            // Invalid range
+            if(Rating < 1 || Rating > 5)
+            {
+                return false;
+            }
+
+            // Get person's last rating, if it was within 5 seconds, block
+            var LastVote = EpisodeRatingInfoProvider.Get()
+                .WhereEquals(nameof(EpisodeRatingInfo.EpisodeRatingIP), IPAddress)
+                .Where($"Datediff(second, {nameof(EpisodeRatingInfo.EpisodeRatingLastModified)}, GETDATE()) < 5")
+                .TopN(1) 
+                .OrderByDescending(nameof(EpisodeRatingInfo.EpisodeRatingLastModified))
+                .FirstOrDefault();
+            if(LastVote != null)
+            {
+                return false;
+            }
+
             // Get EpisodeID
             var EpisodeObj = EpisodeInfoProvider.Get()
                 .WhereEquals(nameof(EpisodeInfo.EpisodeNumber), EpisodeNumber)

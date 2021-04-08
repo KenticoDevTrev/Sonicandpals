@@ -9,25 +9,22 @@ using System.Collections.Generic;
 using System.Linq;
 using CMS.Core;
 using System.Net.Http;
-using CMS.Helpers;
-using System.IO;
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
 using SAP.Models.Interfaces;
 using SAP.Models.SaP;
+using Microsoft.AspNetCore.Http;
 
 namespace SAP.API
 {
-    public class GetNavigation
+    public class GetChapters
     {
-        public GetNavigation(IPageRepository pageRepository)
+        public GetChapters(IChapterRepository chapterRepository)
         {
-            PageRepository = pageRepository;
+            ChapterRepository = chapterRepository;
         }
 
-        public IPageRepository PageRepository { get; }
+        public IChapterRepository ChapterRepository { get; }
 
-        [FunctionName("GetNavigation")]
+        [FunctionName("GetChapters")]
         [FixedDelayRetry(5, "00:00:02")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
@@ -39,10 +36,12 @@ namespace SAP.API
             string Content = "";
             try
             {
-
-                var NavItems = PageRepository.GetNavigation();
+                var ChapterItems = ChapterRepository.GetChapters();
                 
-                return new JsonResult(NavItems);
+                return new JsonResult(new GetChaptersResponse()
+                {
+                    Chapters = ChapterItems
+                });
             }
             catch (UnsupportedMediaTypeException ex)
             {
@@ -55,14 +54,13 @@ namespace SAP.API
                 Error = "Error.  Content: " + Content + ", " + ex.Message + "|" + ex.StackTrace;
             }
 
-            var ErrorResponse = new PageResponse()
+            var ErrorResponse = new GetChaptersResponse()
             {
-                Page = null,
+                Chapters = null,
                 Error = Error
             };
             return new JsonResult(ErrorResponse);
 
         }
     }
-
 }

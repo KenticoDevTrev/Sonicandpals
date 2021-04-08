@@ -70,6 +70,7 @@ namespace MyNamespace
 
                 builder.Services.AddSingleton<IPageRepository, PageRepository>();
                 builder.Services.AddSingleton<IComicRepository, ComicRepository>();
+                builder.Services.AddSingleton<IChapterRepository, ChapterRepository>();
 
 
             }

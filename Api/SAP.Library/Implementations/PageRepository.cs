@@ -45,7 +45,7 @@ namespace SAP.Library.Implementations
                 {
                     cs.CacheDependency = CacheHelper.GetCacheDependency(new string[] { $"nodes|SAP|{InfoPage.CLASS_NAME}|all" });
                 }
-                var Page = InfoPageProvider.GetInfoPage(PageIdentifier, "en-US", "SAP")
+                Page PageItem = InfoPageProvider.GetInfoPage(PageIdentifier, "en-US", "SAP")
                 .Columns(nameof(InfoPage.NodeGUID), nameof(InfoPage.InfoPageContent), nameof(InfoPage.InfoPageTitle))
                 .Select(x => new Page()
                 {
@@ -53,8 +53,8 @@ namespace SAP.Library.Implementations
                     Title = x.InfoPageTitle,
                     PageIdentifier = x.NodeGUID
                 }).FirstOrDefault();
-                return Page;
-            }, new CacheSettings(1440, "GetNavigation"));
+                return PageItem;
+            }, new CacheSettings(1440, "GetPage", PageIdentifier.ToString()));
         }
     }
 }

@@ -31,7 +31,7 @@ namespace SAP.API
         [FixedDelayRetry(5, "00:00:02")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
-            GetTodaysComicsRequest Request,
+            HttpRequest req,
             ILogger log
             )
         {
@@ -75,8 +75,5 @@ namespace SAP.API
         }
     }
 
-    public class GetTodaysComicsRequest
-    {
-      
-    }
+ 
 }
