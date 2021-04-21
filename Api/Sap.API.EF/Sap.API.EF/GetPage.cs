@@ -4,49 +4,38 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
-using SAP.Models;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using Microsoft.AspNetCore.Http;
 using SAP.Models.Interfaces;
+using SAP.Models.SaP;
 
 namespace SAP.API
 {
-    public class GetTodaysComics
+    public class GetPage
     {
-        public GetTodaysComics(IComicRepository comicRepository)
+        public GetPage(IPageRepository pageRepository)
         {
-            ComicRepository = comicRepository;
+            PageRepository = pageRepository;
         }
 
-        public IComicRepository ComicRepository { get; }
+        public IPageRepository PageRepository { get; }
 
-        [FunctionName("GetTodaysComics")]
-        [FixedDelayRetry(5, "00:00:02")]
+        [FunctionName("GetPage")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
-            HttpRequest req,
+            GetPageRequest Request,
             ILogger log
             )
         {
             string Error = "";
             string Content = "";
-           List <Comic> Comics = null;
             try
             {
-                // For error testing
-                //Content = await new StreamReader(req.Body).ReadToEndAsync();
-                //GetComicsRequest Request = JsonConvert.DeserializeObject<GetComicsRequest>(Content);
-
-                Comics = ComicRepository.GetTodaysComics().ToList();
-
-                var Response = new ComicResponse()
+                
+                var Page = PageRepository.GetPage(Request.PageIdentifier);
+                return new JsonResult(new PageResponse()
                 {
-                    Date = (Comics.Count > 0 ? Comics[0].Date : DateTime.Now),
-                    Comics = Comics
-                };
-                return new JsonResult(Response);
+                    Page = Page
+                });
             }
             catch (UnsupportedMediaTypeException ex)
             {
@@ -59,10 +48,9 @@ namespace SAP.API
                 Error = "Error.  Content: " + Content + ", " + ex.Message + "|" + ex.StackTrace;
             }
 
-            var ErrorResponse = new ComicResponse()
+            var ErrorResponse = new PageResponse()
             {
-                Date = DateTime.Now,
-                Comics = Comics,
+                Page = null,
                 Error = Error
             };
             return new JsonResult(ErrorResponse);
@@ -70,5 +58,13 @@ namespace SAP.API
         }
     }
 
- 
+    public class GetPageRequest
+    {
+        public Guid PageIdentifier { get; set; }
+
+        public override string ToString()
+        {
+            return $"{PageIdentifier}";
+        }
+    }
 }

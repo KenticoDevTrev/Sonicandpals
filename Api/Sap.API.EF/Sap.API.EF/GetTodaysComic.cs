@@ -23,7 +23,6 @@ namespace SAP.API
         public IComicRepository ComicRepository { get; }
 
         [FunctionName("GetTodaysComics")]
-        [FixedDelayRetry(5, "00:00:02")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
             HttpRequest req,

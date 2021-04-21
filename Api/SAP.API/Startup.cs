@@ -1,21 +1,12 @@
-﻿using System.Threading.Tasks;
-using System.Linq;
+﻿using System.Linq;
 using System.Reflection;
-
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
-
 using CMS.Core;
 using CMS.DataEngine;
-using CMS.Membership;
 using System.IO;
 using System;
 using Microsoft.Extensions.DependencyInjection;
-using SAP;
 using System.Collections.Generic;
 using SAP.Models.Interfaces;
 using SAP.Library.Implementations;
@@ -71,6 +62,7 @@ namespace MyNamespace
                 builder.Services.AddSingleton<IPageRepository, PageRepository>();
                 builder.Services.AddSingleton<IComicRepository, ComicRepository>();
                 builder.Services.AddSingleton<IChapterRepository, ChapterRepository>();
+                builder.Services.AddSingleton<IKeepAliveService, KeepAliveService>();
 
 
             }

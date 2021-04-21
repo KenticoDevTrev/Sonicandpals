@@ -21,7 +21,6 @@ namespace SAP.API
         public IChapterRepository ChapterRepository { get; }
 
         [FunctionName("GetChapters")]
-        [FixedDelayRetry(5, "00:00:02")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
             HttpRequest req,
@@ -33,7 +32,7 @@ namespace SAP.API
             try
             {
                 var ChapterItems = ChapterRepository.GetChapters();
-                
+
                 return new JsonResult(new GetChaptersResponse()
                 {
                     Chapters = ChapterItems
@@ -42,7 +41,7 @@ namespace SAP.API
             catch (UnsupportedMediaTypeException ex)
             {
                 log.LogError(ex, "Unsupported media type returned");
-                Error = "Unsupported Media Type: "+ex.Message+"|"+ex.StackTrace;
+                Error = "Unsupported Media Type: " + ex.Message + "|" + ex.StackTrace;
             }
             catch (Exception ex)
             {

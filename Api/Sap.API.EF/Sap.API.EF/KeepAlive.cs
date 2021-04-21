@@ -4,7 +4,6 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
-using CMS.Core;
 using SAP.Models.Interfaces;
 
 namespace SAP.API

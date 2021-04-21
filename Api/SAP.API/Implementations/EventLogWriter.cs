@@ -3,7 +3,7 @@ using CMS.Core;
 using CMS.EventLog;
 using SAP.API.Implementations;
 
-[assembly: RegisterImplementation(typeof(IEventLogWriter), typeof(EventLogWriter), Lifestyle = Lifestyle.Singleton, Priority = RegistrationPriority.SystemDefault)]
+//[assembly: RegisterImplementation(typeof(IEventLogWriter), typeof(EventLogWriter), Lifestyle = Lifestyle.Singleton, Priority = RegistrationPriority.SystemDefault)]
 
 namespace SAP.API.Implementations
 {
@@ -11,7 +11,7 @@ namespace SAP.API.Implementations
     {
         public void WriteLog(EventLogData eventLogData)
         {
-            var eventType = EventType.FromEventTypeEnum(eventLogData.EventType);
+            /*var eventType = EventType.FromEventTypeEnum(eventLogData.EventType);
 
             var info = new EventLogInfo(eventType, eventLogData.Source, eventLogData.EventCode)
             {
@@ -30,7 +30,7 @@ namespace SAP.API.Implementations
                 Exception = eventLogData.Exception
             };
 
-            EventLogProvider.LogEvent(info);
+            EventLogProvider.LogEvent(info);*/
 
         }
     }

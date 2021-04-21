@@ -4,26 +4,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
-using SAP.Models;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using Microsoft.AspNetCore.Http;
 using SAP.Models.Interfaces;
+using SAP.Models.SaP;
 
 namespace SAP.API
 {
-    public class GetTodaysComics
+    public class GetNavigation
     {
-        public GetTodaysComics(IComicRepository comicRepository)
+        public GetNavigation(IPageRepository pageRepository)
         {
-            ComicRepository = comicRepository;
+            PageRepository = pageRepository;
         }
 
-        public IComicRepository ComicRepository { get; }
+        public IPageRepository PageRepository { get; }
 
-        [FunctionName("GetTodaysComics")]
-        [FixedDelayRetry(5, "00:00:02")]
+        [FunctionName("GetNavigation")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
             HttpRequest req,
@@ -32,21 +29,12 @@ namespace SAP.API
         {
             string Error = "";
             string Content = "";
-           List <Comic> Comics = null;
             try
             {
-                // For error testing
-                //Content = await new StreamReader(req.Body).ReadToEndAsync();
-                //GetComicsRequest Request = JsonConvert.DeserializeObject<GetComicsRequest>(Content);
 
-                Comics = ComicRepository.GetTodaysComics().ToList();
-
-                var Response = new ComicResponse()
-                {
-                    Date = (Comics.Count > 0 ? Comics[0].Date : DateTime.Now),
-                    Comics = Comics
-                };
-                return new JsonResult(Response);
+                var NavItems = PageRepository.GetNavigation();
+                
+                return new JsonResult(NavItems);
             }
             catch (UnsupportedMediaTypeException ex)
             {
@@ -59,10 +47,9 @@ namespace SAP.API
                 Error = "Error.  Content: " + Content + ", " + ex.Message + "|" + ex.StackTrace;
             }
 
-            var ErrorResponse = new ComicResponse()
+            var ErrorResponse = new PageResponse()
             {
-                Date = DateTime.Now,
-                Comics = Comics,
+                Page = null,
                 Error = Error
             };
             return new JsonResult(ErrorResponse);
@@ -70,5 +57,4 @@ namespace SAP.API
         }
     }
 
- 
 }
