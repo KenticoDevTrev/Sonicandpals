@@ -1,0 +1,7 @@
+node_modules
+**/*.min.js
+**/*.min.js.map
+**/*.min.js.LICENSE.txt
+**/*.min.js
+**/*.js.map
+**/src/**/*.js
