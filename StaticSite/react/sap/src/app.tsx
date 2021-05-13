@@ -1,7 +1,12 @@
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {ComicZone} from './components/ComicZone'
-// Replace
+import { ComicMode } from './enums/ComicMode';
+
+// Determine mode by the page
+const CurrentMode = ComicMode.Daily;
+const IsHomePage = true;
+
 ReactDOM.render(
-    <ComicZone CustomMessage="Testing etc"/>
+    <ComicZone IsHomepage={IsHomePage} Mode={CurrentMode} />
 , document.getElementById("ComicZone"));
