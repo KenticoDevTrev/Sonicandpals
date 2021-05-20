@@ -1,8 +1,8 @@
 import React = require("react");
-import { IEpisodeCalendarProps } from "../interfaces/IEpisodeCalendarProps";
+import { IComicCalendarProps } from "../interfaces/IComicCalendarProps";
 // Calendar display with weekly sidebar
 // Inputs are Mode, Current Date (1st day of month + year)
-export class EpisodeCalendar extends React.Component<IEpisodeCalendarProps> {
+export class ComicCalendar extends React.Component<IComicCalendarProps> {
     constructor(props) {
         super(props);
 

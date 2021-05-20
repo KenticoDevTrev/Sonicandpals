@@ -7,6 +7,30 @@ import { ComicMode } from './enums/ComicMode';
 const CurrentMode = ComicMode.Daily;
 const IsHomePage = true;
 
-ReactDOM.render(
-    <ComicZone IsHomepage={IsHomePage} Mode={CurrentMode} />
-, document.getElementById("ComicZone"));
+export class ComicHelper {
+
+    static HelloWorld() : void {
+        alert("Hello World");
+    }
+    static RenderComicByDate(EpisodeDate : Date) : void {
+        const CurrentMode = ComicMode.Daily;
+        ReactDOM.render(
+            <ComicZone IsHomepage={false} Mode={CurrentMode} Date={EpisodeDate} />
+        , document.getElementById("ComicZone"));
+    }
+    
+    static RenderHomePage() : void {
+    
+        ReactDOM.render(
+            <ComicZone IsHomepage={true} Mode={ComicMode.Daily} />
+        , document.getElementById("ComicZone"));
+    }
+    static RenderComicByEpisode(EpisodeNumber : number) : void {
+        ReactDOM.render(
+            <ComicZone IsHomepage={false} Mode={ComicMode.Episode} EpisodeNumber={EpisodeNumber} />
+        , document.getElementById("ComicZone"));
+    }
+}
+
+// Sets the helper to the window
+window.ComicHelper = ComicHelper;

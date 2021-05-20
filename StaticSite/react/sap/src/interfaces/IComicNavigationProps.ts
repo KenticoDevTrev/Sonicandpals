@@ -2,8 +2,8 @@ import { ComicMode } from "../enums/ComicMode";
 import { Comic } from "../models/Comic";
 
 
-export interface IComicZoneState {
+export interface IComicNavigationProps {
     Mode: ComicMode;
-    IncludeCommentary: boolean;
-    Comics: Array<Comic>;
+    ReferenceEpisode: Comic;
+    NavType: NavigationType;
 }

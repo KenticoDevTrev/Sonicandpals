@@ -1,6 +1,6 @@
 import { ComicMode } from "../enums/ComicMode";
 
-export interface IEpisodeCalendarProps {
+export interface IComicCalendarProps {
     Mode: ComicMode;
     CalendarDate: Date;
 }

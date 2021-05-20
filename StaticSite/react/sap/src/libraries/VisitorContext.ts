@@ -1,11 +1,11 @@
 // handles getting / setting the visitor context via cookies
 
 import { ComicMode } from "../enums/ComicMode";
-import { EpisodeState } from "../models/EpisodeState";
+import { ComicState } from "../models/ComicState";
 
 // Cookie object includes if Commentary is enabled/disabled (true default), last Mode, last Episode #, last Date
 export class VisitorContext {
-    CurrentEpisodeState : EpisodeState
+    CurrentEpisodeState : ComicState
     constructor() {
         // Load from breadcrumbs or default to empty
         this.CurrentEpisodeState = {

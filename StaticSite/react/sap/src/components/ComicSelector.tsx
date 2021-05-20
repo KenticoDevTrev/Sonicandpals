@@ -1,8 +1,8 @@
 // Simple Episode # entry and go
 // includes Mode, current episode #
 import React = require("react");
-import { IEpisodeSelector } from "../interfaces/IEpisodeSelector";
-export class EpisodeSelector extends React.Component<IEpisodeSelector> {
+import { IComicSelector } from "../interfaces/IComicSelector";
+export class ComicSelector extends React.Component<IComicSelector> {
     constructor(props) {
         super(props);
 

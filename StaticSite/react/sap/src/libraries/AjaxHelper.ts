@@ -9,7 +9,6 @@ async postRequest<T>(Url: string, Data?: any): Promise<T> {
         method: "POST",
         mode: 'cors',
         cache: "no-cache",
-        credentials: 'same-origin',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -23,7 +22,6 @@ async getRequest<T>(Url: string, Data?: any): Promise<T> {
         method: "GET",
         mode: 'cors',
         cache: "no-cache",
-        credentials: 'same-origin',
         headers: {
             'Content-Type': 'application/json'
         },
