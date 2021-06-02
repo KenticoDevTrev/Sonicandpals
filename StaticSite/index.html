@@ -1,13 +1,25 @@
 <html>
     <head>
-    <title>Test</title>
+    <title>Sonicandpals - The Comic!</title>
+    <meta name="description" value="Sonic and Pals is a completed sprite comic created by Trevor Fayas.  It was a daily comic running from January 2004 to June 19th, 2011."/>
     <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/SaP/css/SaP.css"/>
 </head>
 <body>
     <div id="ComicZone"></div>
     <script type="text/javascript" src="/react/sap/dist/app.min.js"></script>
     <script type="text/javascript">
-        window.ComicHelper.RenderHomePage();
+        var UrlQuery = new URLSearchParams(window.location.search);
+        if(UrlQuery.get("Episode")) {
+            const EpisodeNum = parseInt(UrlQuery.get("Episode"));
+            window.ComicHelper.RenderComicByEpisode(EpisodeNum);
+        } else if(UrlQuery.get("Date")) {
+            const EpDate = new Date(UrlQuery.get("Date"));
+            window.ComicHelper.RenderComicByDate(EpisodeNum);
+        } else {
+            window.ComicHelper.RenderHomePage();
+        }
     </script>
 </body>
 </html>

@@ -9,7 +9,9 @@
     "vscode:prepublish": "webpack --config ./react/sap/webpack.config.js--mode production",
     "test-compile": "tsc -p ./",
     "webpack": "webpack --config ./react/sap/webpack.config.js --mode development",
-    "webpack-dev": "webpack --config ./react/sap/webpack.config.js --mode development --watch"
+    "webpack-dev": "webpack --config ./react/sap/webpack.config.js --mode development --watch",
+    "less": "lessc ./SaP/css/SaP.less ./SaP/css/SaP.css",
+    "less-dev": "less-watch-compiler --source-map ./SaP/css ./SaP/css"
   },
   "devDependencies": {
     "@types/core-js": "^2.5.3",
@@ -26,6 +28,7 @@
   "dependencies": {
     "moment": "^2.29.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "swiped-events": "^1.1.4"
   }
 }

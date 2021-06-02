@@ -6,4 +6,5 @@ export interface IComicZoneState {
     Mode: ComicMode;
     IncludeCommentary: boolean;
     Comics: Array<Comic>;
+    Error?: string | undefined;
 }

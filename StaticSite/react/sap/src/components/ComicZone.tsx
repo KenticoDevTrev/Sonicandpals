@@ -129,6 +129,9 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
 
     GoToPrevious = () => {
         const RefComic : Comic = this.state.Comics[0];
+        if(RefComic.episodeNumber == 1) {
+            return;
+        }
         const request : ComicQuery = {
             type : this.GetComicModeString(this.state.Mode),
             includeCommentary : this.state.IncludeCommentary
@@ -142,11 +145,14 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             request.date = ComicDate.toDate()
         }
         
-        this.LoadComics(request);
+        this.LoadComics(request, false);
     }
 
     GoToNext = () => {
         const RefComic : Comic = this.state.Comics[this.state.Comics.length-1];
+        if(RefComic.episodeNumber == 2786) {
+            return;
+        }
         const request : ComicQuery = {
             type : this.GetComicModeString(this.state.Mode),
             includeCommentary : this.state.IncludeCommentary
@@ -160,16 +166,48 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             request.date = ComicDate.toDate()
         }
         
-        this.LoadComics(request);
+        this.LoadComics(request, true);
     }
 
-    LoadComics(Request : ComicQuery) {
+    LoadComics(Request : ComicQuery, GoingForward?: boolean) {
         this.ajaxHelper.postRequest<ComicResponse>("http://api.sonicandpals.com/api/GetComics", Request).then(x => {
             if(x.error && x.error.length > 0) {
                 alert(x.error);
             } else {
+                if(x.comics.length == 0) {
+                    // Proceed another step in that direction
+                    if(GoingForward != undefined) {
+                        const Increment = GoingForward!;
+                        if(Request.episodeNumber) {
+                            const NextNumber = (Request.episodeNumber!)+(Increment ? 1 : -1);
+                            if(NextNumber > 2786 || NextNumber < 1) {
+                                this.setState({
+                                    Error: "You are at the "+(Increment ? "end" : "beginning") +" of the comic."
+                                })
+                            } else {
+                                this.GetComicsByEpisode(NextNumber);
+                            }
+                        } else if(Request.date) {
+                            let ComicDate = moment(Request.date!);
+                            ComicDate = ComicDate.add((Increment ? 1 : -1), 'day');
+                            if(ComicDate.toDate() < new Date(2004, 0, 1) || ComicDate.toDate() > new Date(2011, 5, 19)) {
+                                this.setState({
+                                    Error: "You are at the "+(Increment ? "end" : "beginning") +" of the comic."
+                                })
+                            }
+                            this.GetComicsByDate(ComicDate.toDate());
+                        }
+                    } else {
+                        // Selected invalid comic
+                        this.setState({
+                            Error: "No Comics Found for your requested "+((Request.episodeNumber) ? "episode" : "date")+"."
+                        })
+                    }
+                }
+
                 this.setState({
-                    Comics: x.comics
+                    Comics: x.comics,
+                    Error: undefined!
                 });
             }
         });
@@ -196,7 +234,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         });*/
     }
 
-    _handleKeyDown = (event) => {
+    handleKeyDown = (event) => {
         switch( event.keyCode ) {
             case 37:
                 this.GoToPrevious();
@@ -207,22 +245,51 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         }
     }
 
+    handleTouchStart = (event) => {
+        switch( event.keyCode ) {
+            case 37:
+                this.GoToPrevious();
+                break;
+            case 39:
+                this.GoToNext();
+                break;
+        }
+    }
+
+    handleSwipeLeft = (event) => {
+        console.log("Swiped Left");
+        this.GoToNext();
+    }
+    handleSwipeRight = (event) => {
+        console.log("Swiped Right");
+        this.GoToPrevious();
+    }
+
     componentDidMount() {
-        document.addEventListener("keydown", this._handleKeyDown);
+        document.addEventListener("keydown", this.handleKeyDown);
+        document.addEventListener('swiped-left', this.handleSwipeLeft);
+        document.addEventListener('swiped-right', this.handleSwipeRight);
 
     }
     componentDidUpdate() {
-        document.addEventListener("keydown", this._handleKeyDown);
-
+        document.addEventListener("keydown", this.handleKeyDown);
+        document.addEventListener('swiped-left', this.handleSwipeLeft);
+        document.addEventListener('swiped-right', this.handleSwipeRight);
     }
     render() {
+        var ComicsList = this.state.Comics.map(function(comic){
+            //@ts-ignore
+            return <ComicDisplay ComicToDisplay={comic} ShowCommentary={this.state.IncludeCommentary}/>;
+          }, this);
+         
+
         return <div>
             {this.state.Comics.length == 0 &&
                 <p>Loading...</p>
             }
             {this.state.Comics.length > 0 &&
                 <React.Fragment>
-                <ComicDisplay ComicToDisplay={this.state.Comics[0]} ShowCommentary={this.state.IncludeCommentary}/>
+                {ComicsList}
                 {this.state.Comics[0].episodeNumber > 1 &&
                     <React.Fragment>
                     <ComicNavigation NavType={NavigationType.First } Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[0]} Callback={this.GoToFirst}  />
