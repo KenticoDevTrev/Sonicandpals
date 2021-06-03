@@ -2,6 +2,7 @@ import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {ComicZone} from './components/ComicZone'
 import { ComicMode } from './enums/ComicMode';
+import { PageNavigation } from './components/PageNavigation';
 
 // Determine mode by the page
 const CurrentMode = ComicMode.Daily;
@@ -12,6 +13,13 @@ export class ComicHelper {
     static HelloWorld() : void {
         alert("Hello World");
     }
+
+    static LoadNavigation() : void {
+        ReactDOM.render(
+            <PageNavigation/>
+        , document.getElementById("NavigationZone"));
+    }
+
     static RenderComicByDate(EpisodeDate : Date) : void {
         const CurrentMode = ComicMode.Daily;
         ReactDOM.render(

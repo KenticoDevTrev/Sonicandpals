@@ -1,5 +1,7 @@
 // Displays the given episodes title, entry, and commentary if visible
+import moment = require("moment");
 import React = require("react");
+import { Card } from "react-bootstrap";
 import { IComicDisplayProps } from "../interfaces/IComicDisplayProps";
 export class ComicDisplay extends React.Component<IComicDisplayProps> {
     constructor(props) {
@@ -11,22 +13,22 @@ export class ComicDisplay extends React.Component<IComicDisplayProps> {
     componentDidUpdate() {
     }
     render() {
-        return <div>
-            {this.props.ComicToDisplay.date} {this.props.ComicToDisplay.chapter} - {this.props.ComicToDisplay.title}<br/>
-            {this.props.ComicToDisplay.isAnimated && 
-               <video controls>
-                <source src={this.props.ComicToDisplay.imageUrl.replace("~", "") } type="video/mp4"/>
-              </video>
-            }
-            {!this.props.ComicToDisplay.isAnimated &&
-                <img src={this.props.ComicToDisplay.imageUrl.replace("~", "")} alt={"Episode "+this.props.ComicToDisplay.episodeNumber+" - "+this.props.ComicToDisplay.title} />
-            }
-            <br/>
-            {this.props.ShowCommentary &&
-                <p>{this.props.ComicToDisplay.commentary}</p>
-            }
-            Rating: {this.props.ComicToDisplay.averageRating}
-
-            </div>
+        const DateDisplay = moment(this.props.ComicToDisplay.date).format('l');
+        return <div className="text-center">
+            <Card>
+                <Card.Header className="text-left">{DateDisplay} {this.props.ComicToDisplay.chapter} - {this.props.ComicToDisplay.title} | Rating: {this.props.ComicToDisplay.averageRating}</Card.Header>
+                <Card.Body>{this.props.ComicToDisplay.isAnimated &&
+                            <video controls>
+                                <source src={this.props.ComicToDisplay.imageUrl.replace("~", "")} type="video/mp4" />
+                            </video>
+                        }
+                        {!this.props.ComicToDisplay.isAnimated &&
+                            <img src={this.props.ComicToDisplay.imageUrl.replace("~", "")} alt={"Episode " + this.props.ComicToDisplay.episodeNumber + " - " + this.props.ComicToDisplay.title} />
+                        }</Card.Body>
+                <Card.Footer className="text-left" visible={this.props.ShowCommentary}> <span className="d-inline-block" dangerouslySetInnerHTML={{
+                                __html: "<strong>Commentary: </strong>"+this.props.ComicToDisplay.commentary}}/>
+                </Card.Footer>
+            </Card>
+        </div>
     }
 }

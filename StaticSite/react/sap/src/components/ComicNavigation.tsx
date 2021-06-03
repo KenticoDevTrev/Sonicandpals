@@ -12,14 +12,10 @@ export class ComicNavigation extends React.Component<IComicNavigationProps> {
         this.handleClick = this.handleClick.bind(this);
 
     }
-    handleClick (e) {
-        if(this.props.NavType != NavigationType.ModeSwitch) {
-            e.stopPropagation();
-            e.nativeEvent.stopImmediatePropagation();
-            this.props.Callback();
-        } else {
-            // Redirect
-        }
+    handleClick(e) {
+        e.stopPropagation();
+        e.nativeEvent.stopImmediatePropagation();
+        this.props.Callback();
     }
     componentDidMount() {
     }
@@ -27,9 +23,9 @@ export class ComicNavigation extends React.Component<IComicNavigationProps> {
     }
     render() {
         // Get proper URL
-        let NavClass : string = "";
-        let NavUrl : string = "";
-        switch(this.props.Mode) {
+        let NavClass: string = "";
+        let NavUrl: string = "/";
+        /*switch (this.props.Mode) {
             case ComicMode.Daily:
                 NavUrl = "/Daily.html";
                 break;
@@ -38,11 +34,11 @@ export class ComicNavigation extends React.Component<IComicNavigationProps> {
                 break;
             case ComicMode.Weekly:
                 NavUrl = "/Weekly.html";
-        }
-        switch(this.props.NavType) {
+        }*/
+        switch (this.props.NavType) {
             case NavigationType.First:
                 NavClass = "Nav-First";
-                switch(this.props.Mode) {
+                switch (this.props.Mode) {
                     case ComicMode.Daily:
                         NavUrl += "?Date=2004-01-01";
                         break;
@@ -56,7 +52,7 @@ export class ComicNavigation extends React.Component<IComicNavigationProps> {
                 break;
             case NavigationType.Last:
                 NavClass = "Nav-Last";
-                switch(this.props.Mode) {
+                switch (this.props.Mode) {
                     case ComicMode.Daily:
                         NavUrl += "?Date=2011-06-19";
                         break;
@@ -69,54 +65,44 @@ export class ComicNavigation extends React.Component<IComicNavigationProps> {
                 }
                 break;
             case NavigationType.ModeSwitch:
-                switch(this.props.Mode) {
-                    case ComicMode.Daily:
-                    case ComicMode.Weekly:
-                        NavClass = "Nav-ByEpisode";
-                        NavUrl += "?Date="+this.props.ReferenceEpisode.date.substring(0, 10);
-                        break;
-                        
-                    case ComicMode.Episode:
-                        NavClass = "Nav-ByDay";
-                        NavUrl += "?Episode="+this.props.ReferenceEpisode.episodeNumber;
-                        break;
-                }
+                NavClass = "Nav-ComicSelect";
+                NavUrl += "";
                 break;
             case NavigationType.Next:
                 NavClass = "Nav-Next";
-                switch(this.props.Mode) {
+                switch (this.props.Mode) {
                     case ComicMode.Daily:
                     case ComicMode.Weekly:
                         // Increment episode by 1 date
-                        let ComicDate = moment( this.props.ReferenceEpisode.date);
+                        let ComicDate = moment(this.props.ReferenceEpisode.date);
                         ComicDate = ComicDate.add(1, 'day');
-                        NavUrl += "?Date="+ComicDate.format("YYYY-MM-DD");
+                        NavUrl += "?Date=" + ComicDate.format("YYYY-MM-DD");
                         break;
                     case ComicMode.Episode:
-                        NavUrl += "?Episode="+(this.props.ReferenceEpisode.episodeNumber+1);
+                        NavUrl += "?Episode=" + (this.props.ReferenceEpisode.episodeNumber + 1);
                         break;
                 }
                 break;
             case NavigationType.Previous:
                 NavClass = "Nav-Previous";
-                switch(this.props.Mode) {
+                switch (this.props.Mode) {
                     case ComicMode.Daily:
                     case ComicMode.Weekly:
                         // Increment episode by 1 date
-                        let ComicDate = moment( this.props.ReferenceEpisode.date);
+                        let ComicDate = moment(this.props.ReferenceEpisode.date);
                         ComicDate = ComicDate.subtract(1, 'day');
-                        NavUrl += "?Date="+ComicDate.format("YYYY-MM-DD");
+                        NavUrl += "?Date=" + ComicDate.format("YYYY-MM-DD");
                         break;
                     case ComicMode.Episode:
-                        NavUrl += "?Episode="+(this.props.ReferenceEpisode.episodeNumber-1);
+                        NavUrl += "?Episode=" + (this.props.ReferenceEpisode.episodeNumber - 1);
                         break;
                 }
                 break;
         }
 
         // Perform switch on the NavType and adjust the class and url accordingly.
-        return <div className={"Navigation-Item "+NavClass}>
-            <a onClick={this.handleClick}>CLICK ME!</a>
-        </div>
+        return <li>
+            <a onClick={this.handleClick} className={"Navigation-Item " + NavClass}></a>
+            </li>
     }
 }
