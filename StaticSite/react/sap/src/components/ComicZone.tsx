@@ -9,9 +9,11 @@ import { AjaxHelper } from "../libraries/AjaxHelper";
 import { VisitorContext } from "../libraries/VisitorContext";
 import { Comic } from "../models/Comic";
 import { ComicResponse } from "../models/ComicResponse";
+import { GetChaptersResponse } from "../models/GetChapterResponse";
 import { ComicQuery } from "../models/GetComicsRequest";
 import { ComicDisplay } from "./ComicDisplay";
 import { ComicNavigation } from "./ComicNavigation"
+import { ComicSelector } from "./ComicSelector";
 export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState> {
 
     ajaxHelper: AjaxHelper
@@ -26,9 +28,11 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         this.state = {
             Mode: this.props.Mode,
             IncludeCommentary: this.visitorContext.CurrentEpisodeState.ShowCommentary,
-            Comics: new Array<Comic>()
+            Comics: new Array<Comic>(),
+            ShowComicSelect: false
         };
 
+        // Get Chapters before rendering
         if (this.props.IsHomepage) {
             this.GetTodaysComic();
         } else {
@@ -38,10 +42,24 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
                 this.GetComicsByDate(this.props.Date as Date);
             }
         }
+
+        this.GetChapters();
+
     }
 
+    GetChapters = () => {
+        this.ajaxHelper.postRequest<GetChaptersResponse>("http://api.sonicandpals.com/api/GetChapters").then(response => {
+            if(response.error) {
+                this.DisplayError(response.error);
+            } else {
+            this.setState({
+                Chapters: response.chapters
+            });
+        }
+        });
+    }
 
-    GetTodaysComic() {
+    GetTodaysComic = () => {
         this.ajaxHelper.postRequest<ComicResponse>("http://api.sonicandpals.com/api/GetTodaysComics").then(x => {
             if (x.error && x.error.length > 0) {
                 alert(x.error);
@@ -52,7 +70,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             }
         });
     }
-    GetComicsByEpisode(EpisodeNumber: number): void {
+    GetComicsByEpisode = (EpisodeNumber: number): void => {
         const request: ComicQuery = {
             type: (this.state.Mode == ComicMode.Weekly ? "weekly" : "daily"),
             episodeNumber: EpisodeNumber,
@@ -60,7 +78,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         };
         this.LoadComics(request);
     }
-    GetComicsByDate(ComicDate: Date): void {
+    GetComicsByDate = (ComicDate: Date): void => {
         let Mode = "";
         switch (this.state.Mode) {
             case ComicMode.Episode:
@@ -153,7 +171,19 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         this.LoadComics(request, true);
     }
 
-    LoadComics(Request: ComicQuery, GoingForward?: boolean) {
+    ShowComicSelect = () => {
+        this.setState({
+            ShowComicSelect: true
+        });
+    }
+
+    HideComicSelect = () => {
+        this.setState({
+            ShowComicSelect: false
+        })
+    }
+
+    LoadComics = (Request: ComicQuery, GoingForward?: boolean) => {
         this.ajaxHelper.postRequest<ComicResponse>("http://api.sonicandpals.com/api/GetComics", Request).then(x => {
             if (x.error && x.error.length > 0) {
                 alert(x.error);
@@ -197,12 +227,8 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         });
     }
 
-    SwitchMode = () => {
-        // Do nothing, allow redirect
-    }
-
     // ComicModeString is for request, and more indicates the # of comics returned.
-    GetComicModeString(Mode: ComicMode) {
+    GetComicModeString = (Mode: ComicMode) => {
         switch (Mode) {
             case ComicMode.Daily:
             case ComicMode.Episode:
@@ -212,7 +238,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         }
     }
 
-    DisplayMessageClick = () => {
+    DisplayError = (error : string) => {
         /*this.setState({
             DisplayedMessage: true
         });*/
@@ -260,6 +286,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         document.addEventListener('swiped-left', this.handleSwipeLeft);
         document.addEventListener('swiped-right', this.handleSwipeRight);
     }
+
     render() {
         var ComicsList = this.state.Comics.map(function (comic) {
             //@ts-ignore
@@ -283,7 +310,9 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
                                         <ComicNavigation NavType={NavigationType.Previous} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[0]} Callback={this.GoToPrevious} />
                                     </React.Fragment>
                                 }
-                                <ComicNavigation NavType={NavigationType.ModeSwitch} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[0]} Callback={this.SwitchMode} />
+                                {this.state.Chapters && 
+                                    <ComicNavigation NavType={NavigationType.ModeSwitch} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[0]} Callback={this.ShowComicSelect} />
+                                }
                                 {this.state.Comics[this.state.Comics.length - 1].episodeNumber < 2786 &&
                                     <React.Fragment>
                                         <ComicNavigation NavType={NavigationType.Next} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[this.state.Comics.length - 1]} Callback={this.GoToNext} />
@@ -295,6 +324,9 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
                     </div>
 
                 </React.Fragment>
+            }
+            {this.state.ShowComicSelect &&
+                <ComicSelector Chapters={this.state.Chapters} GoToDate={this.GetComicsByDate} GoToEpisode={this.GetComicsByEpisode} CloseCallback={this.HideComicSelect} RefComic={this.state.Comics.length > 0 ? this.state.Comics[this.state.Comics.length - 1] : null}></ComicSelector>
             }
         </div>
     }

@@ -25,7 +25,7 @@ export class ComicDisplay extends React.Component<IComicDisplayProps> {
                         {!this.props.ComicToDisplay.isAnimated &&
                             <img src={this.props.ComicToDisplay.imageUrl.replace("~", "")} alt={"Episode " + this.props.ComicToDisplay.episodeNumber + " - " + this.props.ComicToDisplay.title} />
                         }</Card.Body>
-                <Card.Footer className="text-left" visible={this.props.ShowCommentary}> <span className="d-inline-block" dangerouslySetInnerHTML={{
+                <Card.Footer className="text-left" visible={this.props.ShowCommentary ? "true" : "false"}> <span className="d-inline-block" dangerouslySetInnerHTML={{
                                 __html: "<strong>Commentary: </strong>"+this.props.ComicToDisplay.commentary}}/>
                 </Card.Footer>
             </Card>

@@ -27,10 +27,15 @@
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
+    "css-loader": "^5.2.6",
+    "jquery": "^3.6.0",
     "moment": "^2.29.1",
+    "popper.js": "^1.16.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.0",
+    "react-date-picker": "^8.2.0",
     "react-dom": "^17.0.2",
+    "style-loader": "^2.0.0",
     "swiped-events": "^1.1.4"
   }
 }
