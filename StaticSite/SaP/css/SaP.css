@@ -1,0 +1,147 @@
+body {
+  background: url(/SaP/media/Design/BackgroundTile.png);
+  background-repeat: repeat;
+}
+@media all and (max-width: 991px) {
+  .container {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+header {
+  margin-bottom: 25px;
+}
+header nav {
+  margin-bottom: 25px;
+}
+header .SiteBanner {
+  display: inline-block;
+  height: 195px;
+  width: 485px;
+  background: url("/SaP/Media/Design/Sonicandpals-SiteSprites.png");
+}
+#ComicZone .card {
+  width: auto;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 805px;
+  margin-bottom: 15px;
+}
+#ComicZone .card .card-header {
+  font-style: italic;
+}
+#ComicZone .card .card-body {
+  padding: 0;
+}
+#ComicZone .card .card-footer,
+#ComicZone .card .card-header {
+  padding: 5px;
+}
+#ComicZone .EpisodeNavigation li {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+  float: left;
+}
+#ComicZone .EpisodeNavigation li a {
+  background: url("/SaP/Media/Design/Sonicandpals-SiteSprites.png") 300px 10px;
+  display: inline-block;
+  margin: 0 15px;
+  cursor: pointer;
+}
+#ComicZone .EpisodeNavigation li a.Nav-First,
+#ComicZone .EpisodeNavigation li a.Nav-Previous,
+#ComicZone .EpisodeNavigation li a.Nav-Next,
+#ComicZone .EpisodeNavigation li a.Nav-Last,
+#ComicZone .EpisodeNavigation li a.Nav-ComicSelect {
+  height: 50px;
+  width: 115px;
+  background-position-y: 110px;
+}
+#ComicZone .EpisodeNavigation li a.Nav-First:hover,
+#ComicZone .EpisodeNavigation li a.Nav-Previous:hover,
+#ComicZone .EpisodeNavigation li a.Nav-Next:hover,
+#ComicZone .EpisodeNavigation li a.Nav-Last:hover {
+  background-position-y: 57px;
+}
+#ComicZone .EpisodeNavigation li a.Nav-First {
+  background-position-x: 0;
+}
+#ComicZone .EpisodeNavigation li a.Nav-Previous {
+  background-position-x: 370px;
+}
+#ComicZone .EpisodeNavigation li a.Nav-ComicSelect {
+  background-position-x: 291px;
+  background-position-y: 161px;
+  width: 135px;
+  height: 48px;
+  position: relative;
+  top: 2px;
+}
+#ComicZone .EpisodeNavigation li a.Nav-ComicSelect:hover {
+  background-position-x: 153px;
+}
+#ComicZone .EpisodeNavigation li a.Nav-Next {
+  background-position-x: 255px;
+}
+#ComicZone .EpisodeNavigation li a.Nav-Last {
+  background-position-x: 140px;
+}
+.ComicSelect label,
+.ComicSelect .form-control {
+  display: inline-block;
+}
+.ComicSelect label {
+  width: 135px !important;
+}
+.ComicSelect .form-control {
+  width: 250px !important;
+  margin-right: 15px;
+}
+.ComicSelect .ChapterSelect,
+.ComicSelect .EpisodeSelect,
+.ComicSelect .DateSelect,
+.ComicSelect .react-date-picker__calendar-button,
+.ComicSelect .react-date-picker__clear-button {
+  display: inline-block;
+  background: url("/SaP/Media/Design/Sonicandpals-SiteSprites.png") -110px -195px;
+  width: 25px;
+  height: 25px;
+  border: none;
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+.ComicSelect .ChapterSelect:hover,
+.ComicSelect .EpisodeSelect:hover,
+.ComicSelect .DateSelect:hover,
+.ComicSelect .react-date-picker__calendar-button:hover,
+.ComicSelect .react-date-picker__clear-button:hover {
+  background-position-y: -219px;
+}
+.ComicSelect .react-date-picker__calendar-button,
+.ComicSelect .react-date-picker__clear-button {
+  left: 0;
+  top: 1px;
+}
+.ComicSelect .react-date-picker__calendar-button:active,
+.ComicSelect .react-date-picker__clear-button:active,
+.ComicSelect .react-date-picker__calendar-button:focus,
+.ComicSelect .react-date-picker__clear-button:focus {
+  border: none;
+}
+.ComicSelect .react-date-picker__calendar-button {
+  background-position-x: -135px;
+}
+.ComicSelect .react-date-picker__clear-button {
+  /* Going to hide this button */
+  display: none;
+  background-position-x: -160px;
+}
+.ComicSelect .react-date-picker__button > svg {
+  display: none;
+}
+.ComicSelect .react-date-picker__wrapper {
+  border: none;
+}

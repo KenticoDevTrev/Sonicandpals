@@ -1,0 +1,182 @@
+@Sprites : "/SaP/Media/Design/Sonicandpals-SiteSprites.png";
+
+body {
+    background       : url(/SaP/media/Design/BackgroundTile.png);
+    background-repeat: repeat;
+}
+
+@media all and (max-width: 991px) {
+    .container {
+        max-width: 100% !important;
+        width    : 100% !important;
+    }
+}
+
+header {
+    margin-bottom: 25px;
+
+    nav {
+        margin-bottom: 25px;
+    }
+
+    .SiteBanner {
+        display   : inline-block;
+        height    : 195px;
+        width     : 485px;
+        background: url(@Sprites);
+    }
+}
+
+#ComicZone {
+
+    .card {
+        width        : auto;
+        display      : inline-block;
+        margin-left  : auto;
+        margin-right : auto;
+        max-width    : 805px;
+        margin-bottom: 15px;
+
+        .card-header {
+            font-style: italic;
+        }
+
+        .card-body {
+            padding: 0;
+        }
+
+        .card-footer,
+        .card-header {
+            padding: 5px;
+        }
+
+    }
+
+    .EpisodeNavigation {
+
+        li {
+            margin-left : 0;
+            padding-left: 0;
+            list-style  : none;
+            float       : left;
+
+            a {
+                background: url(@Sprites) 300px 10px;
+                display   : inline-block;
+                margin    : 0 15px;
+                cursor    : pointer;
+
+                &.Nav-First,
+                &.Nav-Previous,
+                &.Nav-Next,
+                &.Nav-Last,
+                &.Nav-ComicSelect {
+                    height               : 50px;
+                    width                : 115px;
+                    background-position-y: 110px;
+                }
+
+                &.Nav-First,
+                &.Nav-Previous,
+                &.Nav-Next,
+                &.Nav-Last {
+                    &:hover {
+                        background-position-y: 57px;
+                    }
+                }
+
+                &.Nav-First {
+                    background-position-x: 0;
+                }
+
+                &.Nav-Previous {
+                    background-position-x: 370px;
+                }
+
+                &.Nav-ComicSelect {
+                    background-position-x: 291px;
+                    background-position-y: 161px;
+                    width                : 135px;
+                    height               : 48px;
+                    position             : relative;
+                    top                  : 2px;
+
+                    &:hover {
+                        background-position-x: 153px;
+                    }
+                }
+
+                &.Nav-Next {
+                    background-position-x: 255px;
+
+                }
+
+                &.Nav-Last {
+                    background-position-x: 140px;
+
+                }
+
+            }
+        }
+    }
+}
+
+.ComicSelect {
+
+    label,
+    .form-control {
+        display: inline-block;
+    }
+    label {
+        width: 135px !important
+    }
+    .form-control {
+        width: 250px !important;
+        margin-right: 15px;
+    }
+
+    .ChapterSelect,
+    .EpisodeSelect,
+    .DateSelect,
+    .react-date-picker__calendar-button,
+    .react-date-picker__clear-button {
+        display   : inline-block;
+        background: url(@Sprites) -110px -195px;
+        width     : 25px;
+        height    : 25px;
+        border    : none;
+        position  : relative;
+        top       : 5px;
+        left      : 5px;
+
+        &:hover {
+            background-position-y: -219px;
+        }
+    }
+    .react-date-picker__calendar-button,
+    .react-date-picker__clear-button {
+        left: 0;
+        top: 1px;
+        &:active,
+        &:focus {
+            border: none;
+        }
+        
+    }
+    .react-date-picker__calendar-button {
+        background-position-x: -135px;
+    }
+    .react-date-picker__clear-button {
+        /* Going to hide this button */
+        display:none;
+        background-position-x: -160px;
+    }
+
+    .react-date-picker__button > svg {
+        display: none;
+    }
+    .react-date-picker__wrapper {
+        border: none;
+    }
+
+}
