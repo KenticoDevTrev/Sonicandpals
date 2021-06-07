@@ -10,4 +10,5 @@ export interface IComicZoneState {
     Error?: string | undefined;
     ShowComicSelect: boolean;
     Chapters?: Array<Chapter>;
+    TrackingEnabled: boolean;
 }

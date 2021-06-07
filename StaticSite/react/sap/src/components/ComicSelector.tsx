@@ -95,8 +95,8 @@ export class ComicSelector extends React.Component<IComicSelectorProps, IComicSe
             <Modal.Body>
                 <div className="ComicSelect">
                     {this.props.Chapters &&
-                        <FormGroup class="form-group">
-                            <FormLabel class="label">Select Chapter: </FormLabel>
+                        <FormGroup className="form-group">
+                            <FormLabel className="label">Select Chapter: </FormLabel>
                             <select className="form-control" value={this.state.SelectedChapter!} onChange={this.chapterChanged}>
                                 {ChapterList}
                             </select>

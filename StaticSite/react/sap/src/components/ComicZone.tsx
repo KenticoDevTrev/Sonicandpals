@@ -29,33 +29,45 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             Mode: this.props.Mode,
             IncludeCommentary: this.visitorContext.CurrentEpisodeState.ShowCommentary,
             Comics: new Array<Comic>(),
-            ShowComicSelect: false
+            ShowComicSelect: false,
+            TrackingEnabled : this.visitorContext.trackEpisode()
         };
 
-        // Get Chapters before rendering
-        if (this.props.IsHomepage) {
-            this.GetTodaysComic();
-        } else {
-            if (this.props.Mode == ComicMode.Episode) {
-                this.GetComicsByEpisode(this.props.EpisodeNumber as number);
+        let LoadingByContext = false;
+        if (this.visitorContext.trackingAllowed() && this.visitorContext.CurrentEpisodeState.EpisodeNumber > 0) {
+            LoadingByContext = true;
+            if (this.visitorContext.CurrentEpisodeState.Mode == ComicMode.Episode) {
+                this.GetComicsByEpisode(this.visitorContext.CurrentEpisodeState.EpisodeNumber);
             } else {
-                this.GetComicsByDate(this.props.Date as Date);
+                this.GetComicsByDate(this.visitorContext.CurrentEpisodeState.EpisodeDate);
             }
         }
 
-        this.GetChapters();
+        if (!LoadingByContext) {
+            if (this.props.IsHomepage) {
+                this.GetTodaysComic();
+            } else {
+                if (this.props.Mode == ComicMode.Episode) {
+                    this.GetComicsByEpisode(this.props.EpisodeNumber as number);
+                } else {
+                    this.GetComicsByDate(this.props.Date as Date);
+                }
+            }
+        }
 
+        // Get Chapters 
+        this.GetChapters();
     }
 
     GetChapters = () => {
         this.ajaxHelper.postRequest<GetChaptersResponse>("http://api.sonicandpals.com/api/GetChapters").then(response => {
-            if(response.error) {
+            if (response.error) {
                 this.DisplayError(response.error);
             } else {
-            this.setState({
-                Chapters: response.chapters
-            });
-        }
+                this.setState({
+                    Chapters: response.chapters
+                });
+            }
         });
     }
 
@@ -218,6 +230,10 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
                         })
                     }
                 } else {
+                    if(this.visitorContext.trackEpisode()) {
+                        this.visitorContext.saveEpisodeContext(x.comics[0]);
+                        this.visitorContext.saveCookies();
+                    }
                     this.setState({
                         Comics: x.comics,
                         Error: undefined!
@@ -238,7 +254,29 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         }
     }
 
-    DisplayError = (error : string) => {
+    ToggleTracking = () => {
+        if(!this.visitorContext.trackingAllowed()){
+            // Get permission to enable tracking
+            if(window.confirm("Cookies are required to track your current comic state.  And honestly, that's all we use the cookies for.  By clicking 'Okay' you agree to enable this feature.")) {
+                this.visitorContext.allowTracking();
+            } else {
+                return;
+            }
+        }
+
+        if(this.visitorContext.trackEpisode()){
+            this.visitorContext.endTracking();
+        } else {
+            this.visitorContext.startTracking();
+            this.visitorContext.saveEpisodeContext(this.state.Comics[0]);
+        }
+        this.visitorContext.saveCookies();
+        this.setState( {
+            TrackingEnabled : this.visitorContext.trackEpisode()
+        })
+    }
+
+    DisplayError = (error: string) => {
         /*this.setState({
             DisplayedMessage: true
         });*/
@@ -290,7 +328,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
     render() {
         var ComicsList = this.state.Comics.map(function (comic) {
             //@ts-ignore
-            return <ComicDisplay ComicToDisplay={comic} ShowCommentary={this.state.IncludeCommentary} />;
+            return <ComicDisplay ComicToDisplay={comic} ShowCommentary={this.state.IncludeCommentary} ToggleTracking={this.ToggleTracking} TrackingEnabled={this.state.TrackingEnabled} />;
         }, this);
 
 
@@ -310,7 +348,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
                                         <ComicNavigation NavType={NavigationType.Previous} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[0]} Callback={this.GoToPrevious} />
                                     </React.Fragment>
                                 }
-                                {this.state.Chapters && 
+                                {this.state.Chapters &&
                                     <ComicNavigation NavType={NavigationType.ModeSwitch} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[0]} Callback={this.ShowComicSelect} />
                                 }
                                 {this.state.Comics[this.state.Comics.length - 1].episodeNumber < 2786 &&

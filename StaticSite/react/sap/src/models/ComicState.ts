@@ -5,4 +5,6 @@ export interface ComicState {
     Mode : ComicMode;
     EpisodeNumber: number;
     EpisodeDate : Date;
+    TrackingAllowed: boolean;
+    TrackingEpisode : boolean;
 }

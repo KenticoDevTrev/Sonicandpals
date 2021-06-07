@@ -16,7 +16,7 @@ export class ComicDisplay extends React.Component<IComicDisplayProps> {
         const DateDisplay = moment(this.props.ComicToDisplay.date).format('l');
         return <div className="text-center">
             <Card>
-                <Card.Header className="text-left">{DateDisplay} {this.props.ComicToDisplay.chapter} - {this.props.ComicToDisplay.title} | Rating: {this.props.ComicToDisplay.averageRating}</Card.Header>
+                <Card.Header className="text-left">{DateDisplay} {this.props.ComicToDisplay.chapter} - {this.props.ComicToDisplay.title} | Rating: {this.props.ComicToDisplay.averageRating} | <button className={"TrackComic "+(this.props.TrackingEnabled ? "Enabled" : "")} title={"Click to "+(this.props.TrackingEnabled ? "stop" : "start")+" tracking which comic you are on. When you visit this site again, your last tracked comic will load."} onClick={(e) => {this.props.ToggleTracking()}}></button> </Card.Header>
                 <Card.Body>{this.props.ComicToDisplay.isAnimated &&
                             <video controls>
                                 <source src={this.props.ComicToDisplay.imageUrl.replace("~", "")} type="video/mp4" />

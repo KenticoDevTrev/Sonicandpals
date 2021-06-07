@@ -52,6 +52,23 @@ header {
 
     }
 
+    .TrackComic {
+        display: inline-block;
+        background: url(/SaP/Media/Design/Sonicandpals-SiteSprites.png) -88px -195px;
+        width: 20px;
+        height: 20px;
+        border: none;
+        position: relative;
+        top: 5px;
+        left: 5px;
+        outline: none;
+
+        &.Enabled {
+            background-position-y: -215px;
+        }
+    }
+    
+
     .EpisodeNavigation {
 
         li {
@@ -123,6 +140,10 @@ header {
 
 .ComicSelect {
 
+    button:focus,
+    button:active {
+        outline: none;
+    }
     label,
     .form-control {
         display: inline-block;

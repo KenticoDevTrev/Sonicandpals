@@ -1,39 +1,113 @@
 // handles getting / setting the visitor context via cookies
 
+import moment = require("moment");
 import { ComicMode } from "../enums/ComicMode";
+import { Comic } from "../models/Comic";
 import { ComicState } from "../models/ComicState";
 
 // Cookie object includes if Commentary is enabled/disabled (true default), last Mode, last Episode #, last Date
 export class VisitorContext {
-    CurrentEpisodeState : ComicState
+    CurrentEpisodeState: ComicState
     constructor() {
-        // Load from breadcrumbs or default to empty
-        this.CurrentEpisodeState = {
-            ShowCommentary: true,
-            Mode : ComicMode.Daily,
-            EpisodeNumber : 0,
-            EpisodeDate : new Date()
+        let TrackingAllowedCookie = this.getCookie("EpisodeTrackingAllowed");
+
+        if (TrackingAllowedCookie != null && TrackingAllowedCookie == "true" && this.getCookie("EpisodeNumber")) {
+            // Load state
+            try {
+                this.CurrentEpisodeState = {
+                    ShowCommentary: this.getCookie("ShowCommentary") == "true",
+                    Mode: this.getCookie("Mode") == "Episode" ? ComicMode.Episode : ComicMode.Daily,
+                    EpisodeNumber: parseInt(this.getCookie("EpisodeNumber")!),
+                    EpisodeDate: new Date(this.getCookie("EpisodeDate")!),
+                    TrackingAllowed : this.getCookie("EpisodeTrackingAllowed") == "true",
+                    TrackingEpisode : this.getCookie("TrackingEpisode") == "true"
+                }
+            } catch (ex) {
+                this.CurrentEpisodeState = {
+                    ShowCommentary: true,
+                    Mode: ComicMode.Episode,
+                    EpisodeNumber: 0,
+                    EpisodeDate: new Date(),
+                    TrackingAllowed : TrackingAllowedCookie != null && TrackingAllowedCookie == "true",
+                    TrackingEpisode : false
+
+                }
+            }
+        } else {
+
+            // Load from breadcrumbs or default to empty
+            this.CurrentEpisodeState = {
+                ShowCommentary: true,
+                Mode: ComicMode.Daily,
+                EpisodeNumber: 0,
+                EpisodeDate: new Date(),
+                TrackingAllowed : TrackingAllowedCookie != null && TrackingAllowedCookie == "true",
+                TrackingEpisode : false
+            }
         }
     }
 
-    SaveCookies() : void {
+    saveCookies(): void {
         // Save to cookies
+        document.cookie = "ShowCommentary=" + (this.CurrentEpisodeState.ShowCommentary ? "true" : "false");
+        document.cookie = "Mode=" + (this.CurrentEpisodeState.Mode == ComicMode.Episode ? "Episode" : "Daily");
+        document.cookie = "EpisodeNumber=" + this.CurrentEpisodeState.EpisodeNumber;
+        document.cookie = "EpisodeDate=" + moment(this.CurrentEpisodeState.EpisodeDate).format('l');
+        document.cookie =  "EpisodeTrackingAllowed="+(this.CurrentEpisodeState.TrackingAllowed ? "true" :"false");
+        document.cookie =  "TrackingEpisode="+(this.CurrentEpisodeState.TrackingEpisode ? "true" :"false");
     }
 
-    SaveCommentaryContext(ShowCommentary: boolean) : void {
+    // This allows tracking to be done
+    allowTracking(): void {
+        this.CurrentEpisodeState.TrackingAllowed = true;
+        this.saveCookies();
+    }
+
+    // This is if tracking is allowed
+    trackingAllowed(): boolean {
+        return this.CurrentEpisodeState.TrackingAllowed;
+    }
+
+
+    // this will turn on tracking, so when they move to another comic it will keep track of where they are
+    startTracking(): void {
+        this.CurrentEpisodeState.TrackingEpisode = true;
+        this.saveCookies();
+    }
+
+    // This will disable tracking, if they want to go to another comic or something.
+    endTracking(): void {
+        this.CurrentEpisodeState.TrackingEpisode = false;
+        this.saveCookies();
+    }
+
+    // This will return true if tracking is on, will be used to trigger the save methods on changes.
+    trackEpisode(): boolean {
+        return this.CurrentEpisodeState.TrackingEpisode;
+    }
+
+    saveCommentaryContext(ShowCommentary: boolean): void {
         this.CurrentEpisodeState.ShowCommentary = ShowCommentary;
-        this.SaveCookies();
+        this.saveCookies();
     }
-    SaveModeContext(Mode: ComicMode) : void {
+    saveModeContext(Mode: ComicMode): void {
         this.CurrentEpisodeState.Mode = Mode;
-        this.SaveCookies();
+        this.saveCookies();
     }
-    SaveEpisodeContextByNumber(EpisodeNumber: number) : void {
-        this.CurrentEpisodeState.EpisodeNumber = EpisodeNumber;
-        this.SaveCookies();
+    saveEpisodeContext(comic: Comic): void {
+        this.CurrentEpisodeState.EpisodeNumber = comic.episodeNumber;
+        this.CurrentEpisodeState.EpisodeDate = new Date(comic.date);
+        this.saveCookies();
     }
-    SaveEpisodeContextByDate(EpisodeDate: Date) : void {
-        this.CurrentEpisodeState.EpisodeDate = EpisodeDate;
-        this.SaveCookies();
+
+    private getCookie(name: string): string | null {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) {
+            //@ts-ignore
+            return parts.pop().split(';').shift();
+        } else {
+            return null;
+        }
     }
 }

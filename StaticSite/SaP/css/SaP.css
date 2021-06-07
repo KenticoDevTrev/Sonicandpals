@@ -38,6 +38,20 @@ header .SiteBanner {
 #ComicZone .card .card-header {
   padding: 5px;
 }
+#ComicZone .TrackComic {
+  display: inline-block;
+  background: url(/SaP/Media/Design/Sonicandpals-SiteSprites.png) -88px -195px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  position: relative;
+  top: 5px;
+  left: 5px;
+  outline: none;
+}
+#ComicZone .TrackComic.Enabled {
+  background-position-y: -215px;
+}
 #ComicZone .EpisodeNavigation li {
   margin-left: 0;
   padding-left: 0;
@@ -87,6 +101,10 @@ header .SiteBanner {
 }
 #ComicZone .EpisodeNavigation li a.Nav-Last {
   background-position-x: 140px;
+}
+.ComicSelect button:focus,
+.ComicSelect button:active {
+  outline: none;
 }
 .ComicSelect label,
 .ComicSelect .form-control {
