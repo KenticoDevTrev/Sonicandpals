@@ -20,6 +20,104 @@ header .SiteBanner {
   width: 485px;
   background: url("/SaP/Media/Design/Sonicandpals-SiteSprites.png");
 }
+#ComicZone {
+  position: relative;
+  /* Fade in/out 
+    .comic-transition-enter-active,
+    .comic-transition-exit-active {
+        transition: opacity 500ms;
+    }
+
+    .comic-transition-exit {
+        opacity: 1;
+    }
+
+    .comic-transition-exit-active {
+        opacity: 0;
+    }
+
+    .comic-transition-enter {
+        opacity: 0;
+    }
+
+    .comic-transition-enter-active {
+        opacity: 1;
+    }*/
+  /* Basic Slide 
+    .comic-transition-enter-active,
+    .comic-transition-exit-active {
+        transition: 250ms;
+    }
+
+    .comic-transition-exit {
+        position: relative;
+        left: 0;
+    }
+
+    .comic-transition-exit-active {
+        left: 150%;
+    }
+
+    .comic-transition-enter {
+        position: relative;
+        left: -150%;
+    }
+
+    .comic-transition-enter-active {
+        left: 0;
+    }*/
+}
+#ComicZone .comic-transition-forward-enter-active,
+#ComicZone .comic-transition-forward-exit-active {
+  transition: 250ms;
+  position: relative;
+}
+#ComicZone .comic-transition-forward-enter {
+  left: 150%;
+}
+#ComicZone .comic-transition-forward-enter.comic-transition-forward-enter-active {
+  left: 0;
+}
+#ComicZone .comic-transition-forward-exit {
+  left: 0;
+}
+#ComicZone .comic-transition-forward-exit.comic-transition-forward-exit-active {
+  left: -150%;
+}
+#ComicZone .comic-transition-backward-enter-active,
+#ComicZone .comic-transition-backward-exit-active {
+  transition: 250ms;
+  position: relative;
+}
+#ComicZone .comic-transition-backward-enter {
+  left: -150%;
+}
+#ComicZone .comic-transition-backward-enter.comic-transition-backward-enter-active {
+  left: 0;
+}
+#ComicZone .comic-transition-backward-exit {
+  left: 0;
+}
+#ComicZone .comic-transition-backward-exit.comic-transition-backward-exit-active {
+  left: 150%;
+}
+#ComicZone .comic-transition-fade-enter-active,
+#ComicZone .comic-transition-fade-exit-active {
+  transition: 250ms;
+  position: relative;
+}
+#ComicZone .comic-transition-fade-enter {
+  opacity: 0;
+}
+#ComicZone .comic-transition-fade-enter.comic-transition-fade-enter-active {
+  opacity: 1;
+}
+#ComicZone .comic-transition-fade-exit {
+  opacity: 1;
+}
+#ComicZone .comic-transition-fade-exit.comic-transition-fade-exit-active {
+  opacity: 0;
+}
 #ComicZone .card {
   width: auto;
   display: inline-block;

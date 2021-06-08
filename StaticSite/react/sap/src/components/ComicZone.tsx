@@ -1,6 +1,8 @@
 import moment = require("moment");
 import * as React from "react";
 import ReactDOM = require("react-dom");
+import { CSSTransition, SwitchTransition, TransitionGroup } from "react-transition-group";
+import { ComicDirection } from "../enums/ComicDirection";
 import { ComicMode } from "../enums/ComicMode";
 import { NavigationType } from "../enums/NavigationType";
 import { IComicZoneProps } from "../interfaces/IComicZoneProps";
@@ -18,7 +20,6 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
 
     ajaxHelper: AjaxHelper
     visitorContext: VisitorContext
-
     constructor(props) {
         super(props);
 
@@ -30,7 +31,8 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             IncludeCommentary: this.visitorContext.CurrentEpisodeState.ShowCommentary,
             Comics: new Array<Comic>(),
             ShowComicSelect: false,
-            TrackingEnabled : this.visitorContext.trackEpisode()
+            TrackingEnabled: this.visitorContext.trackEpisode(),
+            NextComicDirection: ComicDirection.Unknown
         };
 
         let LoadingByContext = false;
@@ -82,15 +84,15 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             }
         });
     }
-    GetComicsByEpisode = (EpisodeNumber: number): void => {
+    GetComicsByEpisode = (EpisodeNumber: number, Direction?: ComicDirection): void => {
         const request: ComicQuery = {
             type: (this.state.Mode == ComicMode.Weekly ? "weekly" : "daily"),
             episodeNumber: EpisodeNumber,
             includeCommentary: this.state.IncludeCommentary
         };
-        this.LoadComics(request);
+        this.LoadComics(request, (Direction != undefined ? Direction : ComicDirection.Unknown));
     }
-    GetComicsByDate = (ComicDate: Date): void => {
+    GetComicsByDate = (ComicDate: Date, Direction?: ComicDirection): void => {
         let Mode = "";
         switch (this.state.Mode) {
             case ComicMode.Episode:
@@ -106,7 +108,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             date: ComicDate,
             includeCommentary: this.state.IncludeCommentary
         };
-        this.LoadComics(request);
+        this.LoadComics(request, (Direction != undefined ? Direction : ComicDirection.Unknown));
     }
 
     GoToFirst = () => {
@@ -122,7 +124,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             request.date = ComicDate.toDate()
         }
 
-        this.LoadComics(request);
+        this.LoadComics(request, ComicDirection.Unknown);
     }
 
     GoToLast = () => {
@@ -138,7 +140,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             request.date = ComicDate.toDate()
         }
 
-        this.LoadComics(request);
+        this.LoadComics(request, ComicDirection.Unknown);
     }
 
     GoToPrevious = () => {
@@ -159,7 +161,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             request.date = ComicDate.toDate()
         }
 
-        this.LoadComics(request, false);
+        this.LoadComics(request, ComicDirection.Backward);
     }
 
     GoToNext = () => {
@@ -180,7 +182,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             request.date = ComicDate.toDate()
         }
 
-        this.LoadComics(request, true);
+        this.LoadComics(request, ComicDirection.Forward);
     }
 
     ShowComicSelect = () => {
@@ -195,15 +197,15 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         })
     }
 
-    LoadComics = (Request: ComicQuery, GoingForward?: boolean) => {
+    LoadComics = (Request: ComicQuery, Direction: ComicDirection) => {
         this.ajaxHelper.postRequest<ComicResponse>("http://api.sonicandpals.com/api/GetComics", Request).then(x => {
             if (x.error && x.error.length > 0) {
                 alert(x.error);
             } else {
                 if (x.comics.length == 0) {
                     // Proceed another step in that direction
-                    if (GoingForward != undefined) {
-                        const Increment = GoingForward!;
+                    if (Direction != ComicDirection.Unknown) {
+                        const Increment = Direction == ComicDirection.Forward!;
                         if (Request.episodeNumber) {
                             const NextNumber = (Request.episodeNumber!) + (Increment ? 1 : -1);
                             if (NextNumber > 2786 || NextNumber < 1) {
@@ -211,7 +213,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
                                     Error: "You are at the " + (Increment ? "end" : "beginning") + " of the comic."
                                 })
                             } else {
-                                this.GetComicsByEpisode(NextNumber);
+                                this.GetComicsByEpisode(NextNumber, Direction);
                             }
                         } else if (Request.date) {
                             let ComicDate = moment(Request.date!);
@@ -221,7 +223,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
                                     Error: "You are at the " + (Increment ? "end" : "beginning") + " of the comic."
                                 });
                             }
-                            this.GetComicsByDate(ComicDate.toDate());
+                            this.GetComicsByDate(ComicDate.toDate(), Direction);
                         }
                     } else {
                         // Selected invalid comic
@@ -230,13 +232,14 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
                         })
                     }
                 } else {
-                    if(this.visitorContext.trackEpisode()) {
+                    if (this.visitorContext.trackEpisode()) {
                         this.visitorContext.saveEpisodeContext(x.comics[0]);
                         this.visitorContext.saveCookies();
                     }
                     this.setState({
                         Comics: x.comics,
-                        Error: undefined!
+                        Error: undefined!,
+                        NextComicDirection: Direction
                     });
                 }
             }
@@ -255,24 +258,24 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
     }
 
     ToggleTracking = () => {
-        if(!this.visitorContext.trackingAllowed()){
+        if (!this.visitorContext.trackingAllowed()) {
             // Get permission to enable tracking
-            if(window.confirm("Cookies are required to track your current comic state.  And honestly, that's all we use the cookies for.  By clicking 'Okay' you agree to enable this feature.")) {
+            if (window.confirm("Cookies are required to track your current comic state.  And honestly, that's all we use the cookies for.  By clicking 'Okay' you agree to enable this feature.")) {
                 this.visitorContext.allowTracking();
             } else {
                 return;
             }
         }
 
-        if(this.visitorContext.trackEpisode()){
+        if (this.visitorContext.trackEpisode()) {
             this.visitorContext.endTracking();
         } else {
             this.visitorContext.startTracking();
             this.visitorContext.saveEpisodeContext(this.state.Comics[0]);
         }
         this.visitorContext.saveCookies();
-        this.setState( {
-            TrackingEnabled : this.visitorContext.trackEpisode()
+        this.setState({
+            TrackingEnabled: this.visitorContext.trackEpisode()
         })
     }
 
@@ -325,39 +328,62 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         document.addEventListener('swiped-right', this.handleSwipeRight);
     }
 
+
     render() {
-        var ComicsList = this.state.Comics.map(function (comic) {
+        var ComicsList = this.state.Comics.map(function (comic, i) {
             //@ts-ignore
-            return <ComicDisplay ComicToDisplay={comic} ShowCommentary={this.state.IncludeCommentary} ToggleTracking={this.ToggleTracking} TrackingEnabled={this.state.TrackingEnabled} />;
+            return <ComicDisplay key={comic.episodeNumber} ComicToDisplay={comic} ShowCommentary={this.state.IncludeCommentary} ToggleTracking={this.ToggleTracking} TrackingEnabled={this.state.TrackingEnabled} />;
         }, this);
 
-
+        let TransitionClass = "fade";
+        /*switch (this.state.NextComicDirection) {
+            case ComicDirection.Forward:
+                TransitionClass = "forward";
+                break;
+            case ComicDirection.Backward:
+                TransitionClass = "backward";
+                break;
+            case ComicDirection.Unknown:
+                TransitionClass = "fade";
+                break;
+        }*/
         return <div>
             {this.state.Comics.length == 0 &&
                 <p>{typeof this.state.Error != "undefined" ? this.state.Error : "Loading..."}</p>
             }
             {this.state.Comics.length > 0 &&
                 <React.Fragment>
-                    {ComicsList}
-                    <div className="row">
-                        <div className="col-12 text-center">
-                            <ul className="EpisodeNavigation d-inline-block">
-                                {this.state.Comics[0].episodeNumber > 1 &&
+
+                    <div className="text-center">
+                        <div className="comic-container">
+                            <SwitchTransition>
+                                <CSSTransition key={this.state.Comics[0].episodeNumber} timeout={250} classNames={"comic-transition-"+TransitionClass}>
                                     <React.Fragment>
-                                        <ComicNavigation NavType={NavigationType.First} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[0]} Callback={this.GoToFirst} />
-                                        <ComicNavigation NavType={NavigationType.Previous} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[0]} Callback={this.GoToPrevious} />
+                                        {ComicsList}
                                     </React.Fragment>
-                                }
-                                {this.state.Chapters &&
-                                    <ComicNavigation NavType={NavigationType.ModeSwitch} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[0]} Callback={this.ShowComicSelect} />
-                                }
-                                {this.state.Comics[this.state.Comics.length - 1].episodeNumber < 2786 &&
-                                    <React.Fragment>
-                                        <ComicNavigation NavType={NavigationType.Next} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[this.state.Comics.length - 1]} Callback={this.GoToNext} />
-                                        <ComicNavigation NavType={NavigationType.Last} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[this.state.Comics.length - 1]} Callback={this.GoToLast} />
-                                    </React.Fragment>
-                                }
-                            </ul>
+                                </CSSTransition>
+                            </SwitchTransition>
+                        </div>
+                        <div className="row">
+                            <div className="col-12 text-center">
+                                <ul className="EpisodeNavigation d-inline-block">
+                                    {this.state.Comics[0].episodeNumber > 1 &&
+                                        <React.Fragment>
+                                            <ComicNavigation NavType={NavigationType.First} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[0]} Callback={this.GoToFirst} />
+                                            <ComicNavigation NavType={NavigationType.Previous} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[0]} Callback={this.GoToPrevious} />
+                                        </React.Fragment>
+                                    }
+                                    {this.state.Chapters &&
+                                        <ComicNavigation NavType={NavigationType.ModeSwitch} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[0]} Callback={this.ShowComicSelect} />
+                                    }
+                                    {this.state.Comics[this.state.Comics.length - 1].episodeNumber < 2786 &&
+                                        <React.Fragment>
+                                            <ComicNavigation NavType={NavigationType.Next} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[this.state.Comics.length - 1]} Callback={this.GoToNext} />
+                                            <ComicNavigation NavType={NavigationType.Last} Mode={this.state.Mode} ReferenceEpisode={this.state.Comics[this.state.Comics.length - 1]} Callback={this.GoToLast} />
+                                        </React.Fragment>
+                                    }
+                                </ul>
+                            </div>
                         </div>
                     </div>
 

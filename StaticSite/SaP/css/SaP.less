@@ -29,6 +29,116 @@ header {
 
 #ComicZone {
 
+    position: relative;
+
+    /* Fade in/out 
+    .comic-transition-enter-active,
+    .comic-transition-exit-active {
+        transition: opacity 500ms;
+    }
+
+    .comic-transition-exit {
+        opacity: 1;
+    }
+
+    .comic-transition-exit-active {
+        opacity: 0;
+    }
+
+    .comic-transition-enter {
+        opacity: 0;
+    }
+
+    .comic-transition-enter-active {
+        opacity: 1;
+    }*/
+
+    /* Basic Slide 
+    .comic-transition-enter-active,
+    .comic-transition-exit-active {
+        transition: 250ms;
+    }
+
+    .comic-transition-exit {
+        position: relative;
+        left: 0;
+    }
+
+    .comic-transition-exit-active {
+        left: 150%;
+    }
+
+    .comic-transition-enter {
+        position: relative;
+        left: -150%;
+    }
+
+    .comic-transition-enter-active {
+        left: 0;
+    }*/
+
+    
+    .comic-transition-forward-enter-active,
+    .comic-transition-forward-exit-active {
+        transition: 250ms;
+        position: relative;
+    }
+
+    .comic-transition-forward-enter {
+        left: 150%;
+        &.comic-transition-forward-enter-active {
+            left: 0;
+        }
+    }
+
+    .comic-transition-forward-exit {
+        left: 0;
+        &.comic-transition-forward-exit-active {
+            left: -150%;
+        }
+    }
+
+    .comic-transition-backward-enter-active,
+    .comic-transition-backward-exit-active {
+        transition: 250ms;
+        position: relative;
+    }
+
+    .comic-transition-backward-enter {
+        left: -150%;
+        &.comic-transition-backward-enter-active {
+            left: 0;
+        }
+    }
+
+    .comic-transition-backward-exit {
+        left: 0;
+        &.comic-transition-backward-exit-active {
+            left: 150%;
+        }
+    }
+
+
+    .comic-transition-fade-enter-active,
+    .comic-transition-fade-exit-active {
+        transition: 250ms;
+        position: relative;
+    }
+
+    .comic-transition-fade-enter {
+        opacity: 0;
+        &.comic-transition-fade-enter-active {
+            opacity: 1;
+        }
+    }
+
+    .comic-transition-fade-exit {
+        opacity: 1;
+        &.comic-transition-fade-exit-active {
+            opacity: 0;
+        }
+    }
+
     .card {
         width        : auto;
         display      : inline-block;
@@ -53,21 +163,21 @@ header {
     }
 
     .TrackComic {
-        display: inline-block;
+        display   : inline-block;
         background: url(/SaP/Media/Design/Sonicandpals-SiteSprites.png) -88px -195px;
-        width: 20px;
-        height: 20px;
-        border: none;
-        position: relative;
-        top: 5px;
-        left: 5px;
-        outline: none;
+        width     : 20px;
+        height    : 20px;
+        border    : none;
+        position  : relative;
+        top       : 5px;
+        left      : 5px;
+        outline   : none;
 
         &.Enabled {
             background-position-y: -215px;
         }
     }
-    
+
 
     .EpisodeNavigation {
 
@@ -144,15 +254,18 @@ header {
     button:active {
         outline: none;
     }
+
     label,
     .form-control {
         display: inline-block;
     }
+
     label {
         width: 135px !important
     }
+
     .form-control {
-        width: 250px !important;
+        width       : 250px !important;
         margin-right: 15px;
     }
 
@@ -174,28 +287,33 @@ header {
             background-position-y: -219px;
         }
     }
+
     .react-date-picker__calendar-button,
     .react-date-picker__clear-button {
         left: 0;
-        top: 1px;
+        top : 1px;
+
         &:active,
         &:focus {
             border: none;
         }
-        
+
     }
+
     .react-date-picker__calendar-button {
         background-position-x: -135px;
     }
+
     .react-date-picker__clear-button {
         /* Going to hide this button */
-        display:none;
+        display              : none;
         background-position-x: -160px;
     }
 
-    .react-date-picker__button > svg {
+    .react-date-picker__button>svg {
         display: none;
     }
+
     .react-date-picker__wrapper {
         border: none;
     }
