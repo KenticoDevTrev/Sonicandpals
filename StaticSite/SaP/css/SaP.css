@@ -303,3 +303,6 @@ header .SiteBanner {
 .ComicSelect .react-date-picker__wrapper {
   border: none;
 }
+#txtShareUrl {
+  flex-grow: 1;
+}

@@ -27,6 +27,14 @@ export class ComicShare extends React.Component<IComicShareProps, IComicShareSta
         this.props.CloseCallback();
     }
 
+    copyToClipboard = (url : string) => {
+        const el = document.createElement('textarea');
+        el.value = url;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+      }
 
     render() {
         const ShareUrl = "https://www.sonicandpals.com/index.html?Episode="+this.props.RefComic.episodeNumber.toString();
@@ -50,6 +58,7 @@ export class ComicShare extends React.Component<IComicShareProps, IComicShareSta
         <EmailShareButton subject={ShareTitle} url={ShareUrl}>
         <EmailIcon iconFillColor="white" round={true} />
         </EmailShareButton>
+        
 
         return <Modal show={this.state.Display} onHide={this.handleClose}>
             <Modal.Header closeButton>
@@ -58,6 +67,9 @@ export class ComicShare extends React.Component<IComicShareProps, IComicShareSta
             <Modal.Body>
                 <div>
                 {FacebookShare} {TwitterShare} {PinterestShare} {EmailShare}
+                </div>
+                <div className="d-flex flex-row mt-3">
+                <button className="btn btn-primary" onClick={() => this.copyToClipboard(ShareUrl)} style={{width: "60px"}}>Copy</button> <input type="text" id="txtShareUrl" className="form-control" value={ShareUrl}/> 
                 </div>
             </Modal.Body >
             <Modal.Footer>

@@ -76,7 +76,7 @@ export class PageNavigation extends React.Component<IPageNavigationProps, IPageN
             }, this);
 
             return <React.Fragment>
-                <Nav onSelect={(selectedKey) => this.displayPage(selectedKey)} >
+                <Nav className="justify-content-center" onSelect={(selectedKey) => this.displayPage(selectedKey)} >
                     {PageList}
                 </Nav>
                 {this.state.DisplayPage &&
