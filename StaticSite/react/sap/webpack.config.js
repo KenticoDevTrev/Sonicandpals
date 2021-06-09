@@ -1,13 +1,15 @@
 const TerserPlugin = require("terser-webpack-plugin");
 const path = require('path');
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     entry: "/react/sap/src/app.tsx",
-    mode: "development",
+    mode: "production",
     output: {
         filename: "app.min.js",
         path: path.resolve(__dirname, "dist")
     },
+
     // Enable sourcemaps for debugging webpack's output. 
     devtool: "source-map",
     resolve: {
@@ -39,6 +41,9 @@ module.exports = {
         minimize: true, // Toggle me to minimize or not
         minimizer: [
             new TerserPlugin(),
-          ],
-    }
+          ]
+    },
+    /*plugins: [
+        new BundleAnalyzerPlugin()
+      ]*/
 } 

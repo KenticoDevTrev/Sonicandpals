@@ -8,7 +8,7 @@
   "scripts": {
     "vscode:prepublish": "webpack --config ./react/sap/webpack.config.js--mode production",
     "test-compile": "tsc -p ./",
-    "webpack": "webpack --config ./react/sap/webpack.config.js --mode development",
+    "webpack": "webpack --config ./react/sap/webpack.config.js --mode production",
     "webpack-dev": "webpack --config ./react/sap/webpack.config.js --mode development --watch",
     "less": "lessc ./SaP/css/SaP.less ./SaP/css/SaP.css",
     "less-dev": "less-watch-compiler --source-map ./SaP/css ./SaP/css"
@@ -23,6 +23,7 @@
     "ts-loader": "^9.1.2",
     "typescript": "^4.2.4",
     "webpack": "^5.37.0",
+    "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.7.0"
   },
   "dependencies": {

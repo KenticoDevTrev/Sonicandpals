@@ -1,6 +1,5 @@
 // Displays one of 5 nav buttons
 // Takes Mode, Button Type [First, Previous, ModeSwitch, Next, Last], and the [last] episode being displayed
-import moment = require("moment");
 import React = require("react");
 import { ComicMode } from "../enums/ComicMode";
 import { NavigationType } from "../enums/NavigationType";
@@ -17,6 +16,21 @@ export class ComicNavigation extends React.Component<IComicNavigationProps> {
         e.nativeEvent.stopImmediatePropagation();
         this.props.Callback();
     }
+
+    formatDate = (date: Date) => {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
+
     componentDidMount() {
     }
     componentDidUpdate() {
@@ -74,9 +88,9 @@ export class ComicNavigation extends React.Component<IComicNavigationProps> {
                     case ComicMode.Daily:
                     case ComicMode.Weekly:
                         // Increment episode by 1 date
-                        let ComicDate = moment(this.props.ReferenceEpisode.date);
-                        ComicDate = ComicDate.add(1, 'day');
-                        NavUrl += "?Date=" + ComicDate.format("YYYY-MM-DD");
+                        let ComicDate = new Date(this.props.ReferenceEpisode.date);
+                        ComicDate.setDate(ComicDate.getDate() + 1);
+                        NavUrl += "?Date=" + this.formatDate(ComicDate);
                         break;
                     case ComicMode.Episode:
                         NavUrl += "?Episode=" + (this.props.ReferenceEpisode.episodeNumber + 1);
@@ -89,9 +103,9 @@ export class ComicNavigation extends React.Component<IComicNavigationProps> {
                     case ComicMode.Daily:
                     case ComicMode.Weekly:
                         // Increment episode by 1 date
-                        let ComicDate = moment(this.props.ReferenceEpisode.date);
-                        ComicDate = ComicDate.subtract(1, 'day');
-                        NavUrl += "?Date=" + ComicDate.format("YYYY-MM-DD");
+                        let ComicDate = new Date(this.props.ReferenceEpisode.date);
+                        ComicDate.setDate(ComicDate.getDate() - 1);
+                        NavUrl += "?Date=" + this.formatDate(ComicDate);
                         break;
                     case ComicMode.Episode:
                         NavUrl += "?Episode=" + (this.props.ReferenceEpisode.episodeNumber - 1);
@@ -103,6 +117,6 @@ export class ComicNavigation extends React.Component<IComicNavigationProps> {
         // Perform switch on the NavType and adjust the class and url accordingly.
         return <li>
             <a onClick={this.handleClick} className={"Navigation-Item " + NavClass}></a>
-            </li>
+        </li>
     }
 }

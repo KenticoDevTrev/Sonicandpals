@@ -1,5 +1,4 @@
 // Displays the given episodes title, entry, and commentary if visible
-import moment = require("moment");
 import React = require("react");
 import { Card } from "react-bootstrap";
 import { IComicDisplayProps } from "../interfaces/IComicDisplayProps";
@@ -13,8 +12,18 @@ export class ComicDisplay extends React.Component<IComicDisplayProps> {
     }
     componentDidUpdate() {
     }
+
+    formatDate = (date: Date) => {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        return [month, day, year].join('/');
+    }
+
     render() {
-        const DateDisplay = moment(this.props.ComicToDisplay.date).format('l');
+        const DateDisplay = this.formatDate(new Date(this.props.ComicToDisplay.date));
         return <div className="text-center">
             <Card>
                 <Card.Header className="text-left">{DateDisplay} {this.props.ComicToDisplay.chapter} - {this.props.ComicToDisplay.title}

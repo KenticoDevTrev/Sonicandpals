@@ -1,5 +1,5 @@
 import React = require("react");
-import { Button, Modal, Nav, Navbar } from "react-bootstrap";
+import { Button, Modal, Nav } from "react-bootstrap";
 import { IPageNavigationProps } from "../interfaces/IPageNavigationProps";
 import { IPageNavigationState } from "../interfaces/IPageNavigationState";
 import { AjaxHelper } from "../libraries/AjaxHelper";

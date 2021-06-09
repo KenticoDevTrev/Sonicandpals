@@ -1,6 +1,4 @@
 // handles getting / setting the visitor context via cookies
-
-import moment = require("moment");
 import { ComicMode } from "../enums/ComicMode";
 import { Comic } from "../models/Comic";
 import { ComicState } from "../models/ComicState";
@@ -52,7 +50,7 @@ export class VisitorContext {
         document.cookie = "ShowCommentary=" + (this.CurrentEpisodeState.ShowCommentary ? "true" : "false");
         document.cookie = "Mode=" + (this.CurrentEpisodeState.Mode == ComicMode.Episode ? "Episode" : "Daily");
         document.cookie = "EpisodeNumber=" + this.CurrentEpisodeState.EpisodeNumber;
-        document.cookie = "EpisodeDate=" + moment(this.CurrentEpisodeState.EpisodeDate).format('l');
+        document.cookie = "EpisodeDate=" + this.formatDate(this.CurrentEpisodeState.EpisodeDate);
         document.cookie =  "EpisodeTrackingAllowed="+(this.CurrentEpisodeState.TrackingAllowed ? "true" :"false");
         document.cookie =  "TrackingEpisode="+(this.CurrentEpisodeState.TrackingEpisode ? "true" :"false");
     }
@@ -109,5 +107,18 @@ export class VisitorContext {
         } else {
             return null;
         }
+    }
+    private formatDate = (date: Date) => {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [year, month, day].join('-');
     }
 }

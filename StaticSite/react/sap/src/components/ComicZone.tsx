@@ -1,6 +1,5 @@
-import moment = require("moment");
-import * as React from "react";
-import { CSSTransition, SwitchTransition, TransitionGroup } from "react-transition-group";
+import React = require("react");
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 import { ComicDirection } from "../enums/ComicDirection";
 import { ComicMode } from "../enums/ComicMode";
 import { NavigationType } from "../enums/NavigationType";
@@ -121,8 +120,8 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         if (this.state.Mode == ComicMode.Episode) {
             request.episodeNumber = 1;
         } else {
-            let ComicDate = moment("2004-01-01");
-            request.date = ComicDate.toDate()
+            let ComicDate = new Date(2004, 0, 1);
+            request.date = ComicDate
         }
 
         this.LoadComics(request, ComicDirection.Unknown);
@@ -137,8 +136,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         if (this.state.Mode == ComicMode.Episode) {
             request.episodeNumber = 2786;
         } else {
-            let ComicDate = moment("2011-06-19");
-            request.date = ComicDate.toDate()
+            request.date =  new Date(2011, 5, 19);
         }
 
         this.LoadComics(request, ComicDirection.Unknown);
@@ -157,9 +155,10 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         if (this.state.Mode == ComicMode.Episode) {
             request.episodeNumber = RefComic.episodeNumber - 1;
         } else {
-            let ComicDate = moment(RefComic.date);
-            ComicDate = ComicDate.subtract(1, 'day');
-            request.date = ComicDate.toDate()
+
+            let ComicDate = new Date(RefComic.date);
+            ComicDate.setDate(ComicDate.getDate() -1);
+            request.date = ComicDate;
         }
 
         this.LoadComics(request, ComicDirection.Backward);
@@ -178,9 +177,9 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         if (this.state.Mode == ComicMode.Episode) {
             request.episodeNumber = RefComic.episodeNumber + 1;
         } else {
-            let ComicDate = moment(RefComic.date);
-            ComicDate = ComicDate.add(1, 'day');
-            request.date = ComicDate.toDate()
+            let ComicDate = new Date(RefComic.date);
+            ComicDate.setDate(ComicDate.getDate()+1);
+            request.date = ComicDate
         }
 
         this.LoadComics(request, ComicDirection.Forward);
@@ -231,14 +230,14 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
                                 this.GetComicsByEpisode(NextNumber, Direction);
                             }
                         } else if (Request.date) {
-                            let ComicDate = moment(Request.date!);
-                            ComicDate = ComicDate.add((Increment ? 1 : -1), 'day');
-                            if (ComicDate.toDate() < new Date(2004, 0, 1) || ComicDate.toDate() > new Date(2011, 5, 19)) {
+                            let ComicDate = Request.date!;
+                            ComicDate.setDate(ComicDate.getDate() + (Increment ? 1 : -1));
+                            if (ComicDate < new Date(2004, 0, 1) || ComicDate > new Date(2011, 5, 19)) {
                                 this.setState({
                                     Error: "You are at the " + (Increment ? "end" : "beginning") + " of the comic."
                                 });
                             }
-                            this.GetComicsByDate(ComicDate.toDate(), Direction);
+                            this.GetComicsByDate(ComicDate, Direction);
                         }
                     } else {
                         // Selected invalid comic
