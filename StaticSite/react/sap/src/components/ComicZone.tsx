@@ -1,5 +1,5 @@
 import moment = require("moment");
-import React from "react";
+import * as React from "react";
 import { CSSTransition, SwitchTransition, TransitionGroup } from "react-transition-group";
 import { ComicDirection } from "../enums/ComicDirection";
 import { ComicMode } from "../enums/ComicMode";
