@@ -5,8 +5,6 @@ import { Button, FormGroup, FormLabel, Modal } from "react-bootstrap";
 import { IComicSelectorProps } from "../interfaces/IComicSelectorProps";
 import { IComicSelectorState } from "../interfaces/IComicSelectorState";
 import DatePicker from 'react-date-picker';
-import { Chapter } from "../models/Chapter";
-import { ChangeEventHandler } from "react";
 
 export class ComicSelector extends React.Component<IComicSelectorProps, IComicSelectorState> {
     constructor(props) {

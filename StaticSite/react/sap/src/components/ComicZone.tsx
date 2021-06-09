@@ -1,6 +1,5 @@
 import moment = require("moment");
-import * as React from "react";
-import ReactDOM = require("react-dom");
+import React from "react";
 import { CSSTransition, SwitchTransition, TransitionGroup } from "react-transition-group";
 import { ComicDirection } from "../enums/ComicDirection";
 import { ComicMode } from "../enums/ComicMode";
@@ -64,7 +63,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
     }
 
     GetChapters = () => {
-        this.ajaxHelper.postRequest<GetChaptersResponse>("http://api.sonicandpals.com/api/GetChapters").then(response => {
+        this.ajaxHelper.postRequest<GetChaptersResponse>("//api.sonicandpals.com/api/GetChapters").then(response => {
             if (response.error) {
                 this.DisplayError(response.error);
             } else {
@@ -76,7 +75,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
     }
 
     GetTodaysComic = () => {
-        this.ajaxHelper.postRequest<ComicResponse>("http://api.sonicandpals.com/api/GetTodaysComics").then(x => {
+        this.ajaxHelper.postRequest<ComicResponse>("//api.sonicandpals.com/api/GetTodaysComics").then(x => {
             if (x.error && x.error.length > 0) {
                 alert(x.error);
             } else {
@@ -199,7 +198,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         })
     }
 
-    ShowShareScreen = (refComic : Comic) => {
+    ShowShareScreen = (refComic: Comic) => {
         this.setState({
             ShowShareScreen: true,
             ShareComic: refComic
@@ -209,12 +208,12 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
     HideShareScreen = () => {
         this.setState({
             ShowShareScreen: false,
-            ShareComic : undefined
+            ShareComic: undefined
         })
     }
 
     LoadComics = (Request: ComicQuery, Direction: ComicDirection) => {
-        this.ajaxHelper.postRequest<ComicResponse>("http://api.sonicandpals.com/api/GetComics", Request).then(x => {
+        this.ajaxHelper.postRequest<ComicResponse>("//api.sonicandpals.com/api/GetComics", Request).then(x => {
             if (x.error && x.error.length > 0) {
                 alert(x.error);
             } else {
@@ -349,10 +348,16 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             return <ComicDisplay key={comic.episodeNumber} ShareComic={this.ShowShareScreen} ErrorCallback={this.DisplayError} ComicToDisplay={comic} ShowCommentary={this.state.IncludeCommentary} ToggleTracking={this.ToggleTracking} TrackingEnabled={this.state.TrackingEnabled} />;
         }, this);
 
+        let Loading =
+            <div className="text-center">
+                <div className="spinner-border text-primary" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            </div>;
         let TransitionClass = "fade";
         return <div>
             {this.state.Comics.length == 0 &&
-                <p>{typeof this.state.Error != "undefined" ? this.state.Error : "Loading..."}</p>
+                <div>{typeof this.state.Error != "undefined" ? this.state.Error : Loading}</div>
             }
             {this.state.Comics.length > 0 &&
                 <React.Fragment>
@@ -360,7 +365,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
                     <div className="text-center">
                         <div className="comic-container">
                             <SwitchTransition>
-                                <CSSTransition key={this.state.Comics[0].date} timeout={250} classNames={"comic-transition-"+TransitionClass}>
+                                <CSSTransition key={this.state.Comics[0].date} timeout={250} classNames={"comic-transition-" + TransitionClass}>
                                     <div>
                                         {ComicsList}
                                     </div>

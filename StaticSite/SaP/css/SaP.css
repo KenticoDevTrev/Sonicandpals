@@ -18,7 +18,7 @@ header .SiteBanner {
   display: inline-block;
   height: 195px;
   width: 485px;
-  background: url("/SaP/Media/Design/Sonicandpals-SiteSprites.png");
+  background: url("/SaP/media/Design/Sonicandpals-SiteSprites.png");
 }
 #ComicZone {
   position: relative;
@@ -141,7 +141,7 @@ header .SiteBanner {
 }
 #ComicZone .TrackComic {
   display: inline-block;
-  background: url("/SaP/Media/Design/Sonicandpals-SiteSprites.png") -88px -195px;
+  background: url("/SaP/media/Design/Sonicandpals-SiteSprites.png") -88px -195px;
   width: 20px;
   height: 20px;
   border: none;
@@ -155,7 +155,7 @@ header .SiteBanner {
 }
 #ComicZone .comic-share {
   display: inline-block;
-  background: url("/SaP/Media/Design/Sonicandpals-SiteSprites.png") -67px -195px;
+  background: url("/SaP/media/Design/Sonicandpals-SiteSprites.png") -67px -195px;
   width: 20px;
   height: 20px;
   border: none;
@@ -169,7 +169,7 @@ header .SiteBanner {
 }
 #ComicZone .rating-container .rating {
   display: inline-block;
-  background: url("/SaP/Media/Design/Sonicandpals-SiteSprites.png") -45px -195px;
+  background: url("/SaP/media/Design/Sonicandpals-SiteSprites.png") -45px -195px;
   width: 20px;
   height: 20px;
   border: none;
@@ -199,7 +199,7 @@ header .SiteBanner {
   float: left;
 }
 #ComicZone .EpisodeNavigation li a {
-  background: url("/SaP/Media/Design/Sonicandpals-SiteSprites.png") 300px 10px;
+  background: url("/SaP/media/Design/Sonicandpals-SiteSprites.png") 300px 10px;
   display: inline-block;
   margin: 0 15px;
   cursor: pointer;
@@ -263,7 +263,7 @@ header .SiteBanner {
 .ComicSelect .react-date-picker__calendar-button,
 .ComicSelect .react-date-picker__clear-button {
   display: inline-block;
-  background: url("/SaP/Media/Design/Sonicandpals-SiteSprites.png") -110px -195px;
+  background: url("/SaP/media/Design/Sonicandpals-SiteSprites.png") -110px -195px;
   width: 25px;
   height: 25px;
   border: none;

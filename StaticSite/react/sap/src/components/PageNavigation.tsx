@@ -28,7 +28,7 @@ export class PageNavigation extends React.Component<IPageNavigationProps, IPageN
     }
 
     loadPages(): void {
-        this.ajaxHelper.postRequest<Array<NavigationItem>>("http://api.sonicandpals.com/api/GetNavigation").then(pages => {
+        this.ajaxHelper.postRequest<Array<NavigationItem>>("//api.sonicandpals.com/api/GetNavigation").then(pages => {
             this.setState({
                 Pages: pages
             });
@@ -39,7 +39,7 @@ export class PageNavigation extends React.Component<IPageNavigationProps, IPageN
         const PageRequest: GetPageRequest = {
             PageIdentifier: pageIdentifier
         };
-        this.ajaxHelper.postRequest<GetPageResponse>("http://api.sonicandpals.com/api/GetPage", PageRequest).then(response => {
+        this.ajaxHelper.postRequest<GetPageResponse>("//api.sonicandpals.com/api/GetPage", PageRequest).then(response => {
             if (response.error) {
                 alert(response.error);
             } else {
@@ -57,10 +57,15 @@ export class PageNavigation extends React.Component<IPageNavigationProps, IPageN
     }
 
     render() {
+        let Loading =
+        <div className="text-center">
+            <div className="spinner-border text-primary" role="status">
+                <span className="sr-only">Loading...</span>
+            </div>
+        </div>;
+
         if (this.state.Pages.length == 0) {
-            return <React.Fragment>
-                Loading...
-                </React.Fragment>
+            return Loading;
         } else {
             var PageList = this.state.Pages.map(function (page) {
                 //@ts-ignore
@@ -76,7 +81,7 @@ export class PageNavigation extends React.Component<IPageNavigationProps, IPageN
             }, this);
 
             return <React.Fragment>
-                <Nav className="justify-content-center" onSelect={(selectedKey) => this.displayPage(selectedKey)} >
+                <Nav className="justify-content-center" onSelect={(selectedKey) => this.displayPage(selectedKey as string)} >
                     {PageList}
                 </Nav>
                 {this.state.DisplayPage &&

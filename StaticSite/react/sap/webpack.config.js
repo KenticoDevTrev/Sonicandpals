@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
     entry: "/react/sap/src/app.tsx",
-    mode: "development",
+    mode: "production",
     output: {
         filename: "app.min.js",
         path: path.resolve(__dirname, "dist")

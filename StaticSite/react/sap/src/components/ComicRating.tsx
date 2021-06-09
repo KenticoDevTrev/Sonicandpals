@@ -30,7 +30,7 @@ export class ComicRating extends React.Component<IComicRatingProps, IComicRating
             EpisodeSubNumber: this.props.EpisodeSubNumber,
             StarRating: rating
         }
-        this.ajaxHelper.postRequest<VoteResponse>("http://api.sonicandpals.com/api/Vote", request).then(response => {
+        this.ajaxHelper.postRequest<VoteResponse>("//api.sonicandpals.com/api/Vote", request).then(response => {
             if (response.error && response.error.length > 0) {
                 this.props.ErrorCallback(response.error);
             } else if (response.successful) {
