@@ -24,8 +24,8 @@ export class ComicDisplay extends React.Component<IComicDisplayProps> {
                             EpisodeNumber={this.props.ComicToDisplay.episodeNumber}
                             EpisodeSubNumber={this.props.ComicToDisplay.episodeSubNumber}
                             ErrorCallback={this.props.ErrorCallback}></ComicRating>
-                        <button className="comic-share" title={"Click to share this comic."} onClick={(e) => { this.props.ToggleTracking() }}></button>
-
+                        <button className="comic-share" title={"Click to share this comic."} onClick={(e) => { this.props.ShareComic(this.props.ComicToDisplay) }}></button>
+                        
                         <button className={"TrackComic " + (this.props.TrackingEnabled ? "Enabled" : "")} title={"Click to " + (this.props.TrackingEnabled ? "stop" : "start") + " tracking which comic you are on. When you visit this site again, your last tracked comic will load."} onClick={(e) => { this.props.ToggleTracking() }}></button>
                     </span>
                 </Card.Header>

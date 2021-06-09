@@ -35,6 +35,7 @@
     "react-bootstrap": "^1.6.0",
     "react-date-picker": "^8.2.0",
     "react-dom": "^17.0.2",
+    "react-share": "^4.4.0",
     "react-transition-group": "^4.4.2",
     "style-loader": "^2.0.0",
     "swiped-events": "^1.1.4"

@@ -1,14 +1,20 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Sonicandpals - The Comic!</title>
-    <meta name="description"
+    <meta property="description"
         value="Sonic and Pals is a completed sprite comic created by Trevor Fayas.  It was a daily comic running from January 2004 to June 19th, 2011." />
-    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
-    <script src="/SaP/scripts/swiped-events.min.js"></script>
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/SaP/css/SaP.css" />
+    <meta property="og:url"                content="https://www.sonicandpals.com/index.html" />
+<meta property="og:type"               content="web" />
+<meta property="og:title"              content="Sonicandpals - The Comic!" />
+<meta property="og:description"        content="Sonic and Pals is a completed sprite comic created by Trevor Fayas.  It was a daily comic running from January 2004 to June 19th, 2011." />
+<meta property="og:image"              content="https://www.sonicandpals.com/SaP/media/Design/Sonicandpals-TheComic.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 </head>
 
 <body>
@@ -30,6 +36,11 @@
 
         <div id="ComicZone"></div>
     </div>
+    <footer class="text-center">
+        <p style="font-size:small">This site is meant to entertain and possibly parody. All content not copyrighted by Sega, Capcom, etc, is copyright 2004-2021 by Trevor Fayas.</p>
+    </footer>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+    <script src="/SaP/scripts/swiped-events.min.js"></script>
     <script type="text/javascript" src="/react/sap/dist/app.min.js"></script>
     <script type="text/javascript">
         window.ComicHelper.LoadNavigation();
@@ -45,6 +56,7 @@
             window.ComicHelper.RenderHomePage();
         }
     </script>
+
 </body>
 
 </html>

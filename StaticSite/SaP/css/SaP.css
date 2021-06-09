@@ -67,6 +67,9 @@ header .SiteBanner {
         left: 0;
     }*/
 }
+#ComicZone .comic-container {
+  min-height: 288px;
+}
 #ComicZone .comic-transition-forward-enter-active,
 #ComicZone .comic-transition-forward-exit-active {
   transition: 250ms;
@@ -148,6 +151,20 @@ header .SiteBanner {
   outline: none;
 }
 #ComicZone .TrackComic.Enabled {
+  background-position-y: -215px;
+}
+#ComicZone .comic-share {
+  display: inline-block;
+  background: url("/SaP/Media/Design/Sonicandpals-SiteSprites.png") -67px -195px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  position: relative;
+  top: 3px;
+  left: 2px;
+  outline: none;
+}
+#ComicZone .comic-share:hover {
   background-position-y: -215px;
 }
 #ComicZone .rating-container .rating {

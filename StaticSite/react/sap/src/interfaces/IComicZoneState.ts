@@ -13,4 +13,6 @@ export interface IComicZoneState {
     Chapters?: Array<Chapter>;
     TrackingEnabled: boolean;
     NextComicDirection: ComicDirection;
+    ShowShareScreen: boolean;
+    ShareComic?: Comic;
 }

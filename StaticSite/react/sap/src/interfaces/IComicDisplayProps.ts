@@ -6,4 +6,5 @@ export interface IComicDisplayProps {
     TrackingEnabled: boolean;
     ToggleTracking : Function;
     ErrorCallback(error : string) : void;
+    ShareComic(refComic : Comic) : void;
 }

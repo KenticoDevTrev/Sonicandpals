@@ -31,6 +31,10 @@ header {
 
     position: relative;
 
+    .comic-container {
+        min-height: 288px;
+    }
+
     /* Fade in/out 
     .comic-transition-enter-active,
     .comic-transition-exit-active {
@@ -180,6 +184,21 @@ header {
         outline   : none;
 
         &.Enabled {
+            background-position-y: -215px;
+        }
+    }
+
+    .comic-share{
+        display   : inline-block;
+        background: url(@Sprites) -67px -195px;
+        width     : 20px;
+        height    : 20px;
+        border    : none;
+        position  : relative;
+        top       : 3px;
+        left      : 2px;
+        outline   : none;
+        &:hover {
             background-position-y: -215px;
         }
     }

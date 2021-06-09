@@ -16,6 +16,7 @@ import { ComicQuery } from "../models/GetComicsRequest";
 import { ComicDisplay } from "./ComicDisplay";
 import { ComicNavigation } from "./ComicNavigation"
 import { ComicSelector } from "./ComicSelector";
+import { ComicShare } from "./ComicShare";
 export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState> {
 
     ajaxHelper: AjaxHelper
@@ -32,7 +33,8 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             Comics: new Array<Comic>(),
             ShowComicSelect: false,
             TrackingEnabled: this.visitorContext.trackEpisode(),
-            NextComicDirection: ComicDirection.Unknown
+            NextComicDirection: ComicDirection.Unknown,
+            ShowShareScreen: false
         };
 
         let LoadingByContext = false;
@@ -197,6 +199,20 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         })
     }
 
+    ShowShareScreen = (refComic : Comic) => {
+        this.setState({
+            ShowShareScreen: true,
+            ShareComic: refComic
+        });
+    }
+
+    HideShareScreen = () => {
+        this.setState({
+            ShowShareScreen: false,
+            ShareComic : undefined
+        })
+    }
+
     LoadComics = (Request: ComicQuery, Direction: ComicDirection) => {
         this.ajaxHelper.postRequest<ComicResponse>("http://api.sonicandpals.com/api/GetComics", Request).then(x => {
             if (x.error && x.error.length > 0) {
@@ -280,9 +296,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
     }
 
     DisplayError = (error: string) => {
-        /*this.setState({
-            DisplayedMessage: true
-        });*/
+        alert(error);
     }
 
     handleKeyDown = (event) => {
@@ -332,21 +346,10 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
     render() {
         var ComicsList = this.state.Comics.map(function (comic, i) {
             //@ts-ignore
-            return <ComicDisplay key={comic.episodeNumber} ErrorCallback={this.DisplayError} ComicToDisplay={comic} ShowCommentary={this.state.IncludeCommentary} ToggleTracking={this.ToggleTracking} TrackingEnabled={this.state.TrackingEnabled} />;
+            return <ComicDisplay key={comic.episodeNumber} ShareComic={this.ShowShareScreen} ErrorCallback={this.DisplayError} ComicToDisplay={comic} ShowCommentary={this.state.IncludeCommentary} ToggleTracking={this.ToggleTracking} TrackingEnabled={this.state.TrackingEnabled} />;
         }, this);
 
         let TransitionClass = "fade";
-        /*switch (this.state.NextComicDirection) {
-            case ComicDirection.Forward:
-                TransitionClass = "forward";
-                break;
-            case ComicDirection.Backward:
-                TransitionClass = "backward";
-                break;
-            case ComicDirection.Unknown:
-                TransitionClass = "fade";
-                break;
-        }*/
         return <div>
             {this.state.Comics.length == 0 &&
                 <p>{typeof this.state.Error != "undefined" ? this.state.Error : "Loading..."}</p>
@@ -391,6 +394,9 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             }
             {this.state.ShowComicSelect &&
                 <ComicSelector Chapters={this.state.Chapters} GoToDate={this.GetComicsByDate} GoToEpisode={this.GetComicsByEpisode} CloseCallback={this.HideComicSelect} RefComic={this.state.Comics.length > 0 ? this.state.Comics[this.state.Comics.length - 1] : null}></ComicSelector>
+            }
+            {this.state.ShowShareScreen && this.state.ShareComic &&
+                <ComicShare RefComic={this.state.ShareComic!} CloseCallback={this.HideShareScreen}></ComicShare>
             }
         </div>
     }
