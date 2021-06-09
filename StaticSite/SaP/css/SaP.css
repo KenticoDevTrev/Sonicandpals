@@ -138,17 +138,42 @@ header .SiteBanner {
 }
 #ComicZone .TrackComic {
   display: inline-block;
-  background: url(/SaP/Media/Design/Sonicandpals-SiteSprites.png) -88px -195px;
+  background: url("/SaP/Media/Design/Sonicandpals-SiteSprites.png") -88px -195px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  position: relative;
+  top: 3px;
+  left: 2px;
+  outline: none;
+}
+#ComicZone .TrackComic.Enabled {
+  background-position-y: -215px;
+}
+#ComicZone .rating-container .rating {
+  display: inline-block;
+  background: url("/SaP/Media/Design/Sonicandpals-SiteSprites.png") -45px -195px;
   width: 20px;
   height: 20px;
   border: none;
   position: relative;
   top: 5px;
-  left: 5px;
   outline: none;
+  cursor: pointer;
+  margin-right: 2px;
 }
-#ComicZone .TrackComic.Enabled {
+#ComicZone .rating-container .rating.half {
+  background-position-x: -24px;
+}
+#ComicZone .rating-container .rating.full {
+  background-position-x: -1px;
+}
+#ComicZone .rating-container .rating.hovering {
+  background-position-x: -1px;
   background-position-y: -215px;
+}
+#ComicZone .rating-container.voted .rating {
+  background-position-y: -195px !important;
 }
 #ComicZone .EpisodeNavigation li {
   margin-left: 0;

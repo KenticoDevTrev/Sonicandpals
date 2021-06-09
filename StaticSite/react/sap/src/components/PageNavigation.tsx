@@ -65,11 +65,11 @@ export class PageNavigation extends React.Component<IPageNavigationProps, IPageN
             var PageList = this.state.Pages.map(function (page) {
                 //@ts-ignore
                 if (page.uRL) {
-                    return <Nav.Item >
+                    return <Nav.Item key={page.pageIdentifier} >
                         <Nav.Link href={page.uRL} >{page.title}</Nav.Link>
                     </Nav.Item>;
                 } else {
-                    return <Nav.Item >
+                    return <Nav.Item key={page.pageIdentifier} >
                         <Nav.Link eventKey={page.pageIdentifier}>{page.title}</Nav.Link>
                     </Nav.Item>;
                 }

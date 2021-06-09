@@ -5,4 +5,5 @@ export interface IComicDisplayProps {
     ShowCommentary: boolean;
     TrackingEnabled: boolean;
     ToggleTracking : Function;
+    ErrorCallback(error : string) : void;
 }

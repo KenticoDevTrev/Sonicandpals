@@ -77,15 +77,16 @@ header {
         left: 0;
     }*/
 
-    
+
     .comic-transition-forward-enter-active,
     .comic-transition-forward-exit-active {
         transition: 250ms;
-        position: relative;
+        position  : relative;
     }
 
     .comic-transition-forward-enter {
         left: 150%;
+
         &.comic-transition-forward-enter-active {
             left: 0;
         }
@@ -93,6 +94,7 @@ header {
 
     .comic-transition-forward-exit {
         left: 0;
+
         &.comic-transition-forward-exit-active {
             left: -150%;
         }
@@ -101,11 +103,12 @@ header {
     .comic-transition-backward-enter-active,
     .comic-transition-backward-exit-active {
         transition: 250ms;
-        position: relative;
+        position  : relative;
     }
 
     .comic-transition-backward-enter {
         left: -150%;
+
         &.comic-transition-backward-enter-active {
             left: 0;
         }
@@ -113,6 +116,7 @@ header {
 
     .comic-transition-backward-exit {
         left: 0;
+
         &.comic-transition-backward-exit-active {
             left: 150%;
         }
@@ -122,11 +126,12 @@ header {
     .comic-transition-fade-enter-active,
     .comic-transition-fade-exit-active {
         transition: 250ms;
-        position: relative;
+        position  : relative;
     }
 
     .comic-transition-fade-enter {
         opacity: 0;
+
         &.comic-transition-fade-enter-active {
             opacity: 1;
         }
@@ -134,6 +139,7 @@ header {
 
     .comic-transition-fade-exit {
         opacity: 1;
+
         &.comic-transition-fade-exit-active {
             opacity: 0;
         }
@@ -164,17 +170,51 @@ header {
 
     .TrackComic {
         display   : inline-block;
-        background: url(/SaP/Media/Design/Sonicandpals-SiteSprites.png) -88px -195px;
+        background: url(@Sprites) -88px -195px;
         width     : 20px;
         height    : 20px;
         border    : none;
         position  : relative;
-        top       : 5px;
-        left      : 5px;
+        top       : 3px;
+        left      : 2px;
         outline   : none;
 
         &.Enabled {
             background-position-y: -215px;
+        }
+    }
+
+    .rating-container {
+        .rating {
+            display     : inline-block;
+            background  : url(@Sprites) -45px -195px;
+            width       : 20px;
+            height      : 20px;
+            border      : none;
+            position    : relative;
+            top         : 5px;
+            outline     : none;
+            cursor      : pointer;
+            margin-right: 2px;
+
+            &.half {
+                background-position-x: -24px;
+            }
+
+            &.full {
+                background-position-x: -1px;
+            }
+
+            &.hovering {
+                background-position-x: -1px;
+                background-position-y: -215px;
+            }
+        }
+
+
+
+        &.voted .rating {
+            background-position-y: -195px !important;
         }
     }
 

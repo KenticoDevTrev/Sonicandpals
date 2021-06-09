@@ -332,7 +332,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
     render() {
         var ComicsList = this.state.Comics.map(function (comic, i) {
             //@ts-ignore
-            return <ComicDisplay key={comic.episodeNumber} ComicToDisplay={comic} ShowCommentary={this.state.IncludeCommentary} ToggleTracking={this.ToggleTracking} TrackingEnabled={this.state.TrackingEnabled} />;
+            return <ComicDisplay key={comic.episodeNumber} ErrorCallback={this.DisplayError} ComicToDisplay={comic} ShowCommentary={this.state.IncludeCommentary} ToggleTracking={this.ToggleTracking} TrackingEnabled={this.state.TrackingEnabled} />;
         }, this);
 
         let TransitionClass = "fade";
@@ -357,10 +357,10 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
                     <div className="text-center">
                         <div className="comic-container">
                             <SwitchTransition>
-                                <CSSTransition key={this.state.Comics[0].episodeNumber} timeout={250} classNames={"comic-transition-"+TransitionClass}>
-                                    <React.Fragment>
+                                <CSSTransition key={this.state.Comics[0].date} timeout={250} classNames={"comic-transition-"+TransitionClass}>
+                                    <div>
                                         {ComicsList}
-                                    </React.Fragment>
+                                    </div>
                                 </CSSTransition>
                             </SwitchTransition>
                         </div>
