@@ -320,12 +320,16 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
     }
 
     handleSwipeLeft = (event) => {
-        console.log("Swiped Left");
-        this.GoToNext();
+        if(screen && screen.availHeight < screen.availWidth) {
+            //console.log("Swiped Left");
+            this.GoToNext();
+        }
     }
     handleSwipeRight = (event) => {
-        console.log("Swiped Right");
-        this.GoToPrevious();
+        if(screen && screen.availHeight < screen.availWidth) {
+            //console.log("Swiped Right");
+            this.GoToPrevious();
+        }
     }
 
     componentDidMount() {
