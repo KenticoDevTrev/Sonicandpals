@@ -24,7 +24,7 @@ namespace SAP.API
 
         [FunctionName("GetTodaysComics")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
+            [HttpTrigger(AuthorizationLevel.Anonymous, new string[] { "post", "get" }, Route = null)]
             HttpRequest req,
             ILogger log
             )

@@ -8,6 +8,7 @@ using System.Net.Http;
 using Microsoft.AspNetCore.Http;
 using SAP.Models.Interfaces;
 using SAP.Models.SaP;
+using System.Collections.Generic;
 
 namespace SAP.API
 {
@@ -22,16 +23,16 @@ namespace SAP.API
 
         [FunctionName("GetNavigation")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
+            [HttpTrigger(AuthorizationLevel.Anonymous, new string[]{ "post", "get" }, Route = null)]
             HttpRequest req,
             ILogger log
             )
         {
             string Error = "";
             string Content = "";
+
             try
             {
-
                 var NavItems = PageRepository.GetNavigation();
                 
                 return new JsonResult(NavItems);

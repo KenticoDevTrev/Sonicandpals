@@ -47,12 +47,12 @@ export class VisitorContext {
 
     saveCookies(): void {
         // Save to cookies
-        document.cookie = "ShowCommentary=" + (this.CurrentEpisodeState.ShowCommentary ? "true" : "false");
-        document.cookie = "Mode=" + (this.CurrentEpisodeState.Mode == ComicMode.Episode ? "Episode" : "Daily");
-        document.cookie = "EpisodeNumber=" + this.CurrentEpisodeState.EpisodeNumber;
-        document.cookie = "EpisodeDate=" + this.formatDate(this.CurrentEpisodeState.EpisodeDate);
-        document.cookie =  "EpisodeTrackingAllowed="+(this.CurrentEpisodeState.TrackingAllowed ? "true" :"false");
-        document.cookie =  "TrackingEpisode="+(this.CurrentEpisodeState.TrackingEpisode ? "true" :"false");
+        document.cookie = "ShowCommentary=" + (this.CurrentEpisodeState.ShowCommentary ? "true" : "false")+";max-age=31536000";
+        document.cookie = "Mode=" + (this.CurrentEpisodeState.Mode == ComicMode.Episode ? "Episode" : "Daily")+";max-age=31536000";
+        document.cookie = "EpisodeNumber=" + this.CurrentEpisodeState.EpisodeNumber+";max-age=31536000";
+        document.cookie = "EpisodeDate=" + this.formatDate(this.CurrentEpisodeState.EpisodeDate)+";max-age=31536000";
+        document.cookie =  "EpisodeTrackingAllowed="+(this.CurrentEpisodeState.TrackingAllowed ? "true" :"false")+";max-age=31536000";
+        document.cookie =  "TrackingEpisode="+(this.CurrentEpisodeState.TrackingEpisode ? "true" :"false")+";max-age=31536000";
     }
 
     // This allows tracking to be done

@@ -26,7 +26,7 @@ export class ComicDisplay extends React.Component<IComicDisplayProps> {
         const DateDisplay = this.formatDate(new Date(this.props.ComicToDisplay.date));
         return <div className="text-center">
             <Card>
-                <Card.Header className="text-left">{DateDisplay} {this.props.ComicToDisplay.chapter} - {this.props.ComicToDisplay.title}
+                <Card.Header className="text-left">{DateDisplay} #{this.props.ComicToDisplay.episodeNumber} - {this.props.ComicToDisplay.chapter} - {this.props.ComicToDisplay.title}
                     <span className="float-right">
                         <ComicRating
                             AverageRating={this.props.ComicToDisplay.averageRating}

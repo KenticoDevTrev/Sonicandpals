@@ -24,7 +24,7 @@ namespace SAP.API
 
         [FunctionName("GetComics")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
+            [HttpTrigger(AuthorizationLevel.Anonymous, new string[] {"get", "post" }, Route = null)]
             GetComicsRequest Request,
             ILogger log
             )
@@ -34,6 +34,15 @@ namespace SAP.API
            List <Comic> Comics = null;
             try
             {
+                if(Request == null)
+                {
+                    return new JsonResult(new ComicResponse()
+                    {
+                        Date = DateTime.Now,
+                        Comics = new List<Comic>(),
+                        Error = "Not a post request"
+                    });
+                }
                 // For error testing
                 //Content = await new StreamReader(req.Body).ReadToEndAsync();
                 //GetComicsRequest Request = JsonConvert.DeserializeObject<GetComicsRequest>(Content);

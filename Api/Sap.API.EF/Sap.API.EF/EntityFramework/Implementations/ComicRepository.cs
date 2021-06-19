@@ -98,7 +98,7 @@ namespace Sap.API.EF.EntityFramework.Implementations
         public IEnumerable<Comic> GetTodaysComics()
         {
             // Launch Date
-            DateTime LaunchDate = new DateTime(2021, 4, 1);
+            DateTime LaunchDate = new DateTime(2021, 6, 19);
             int EpisodeNumber = Convert.ToInt32((DateTime.Now - LaunchDate).TotalDays % 2786) + 1;
             var EpisodeQuery = EpisodeContext.Episodes
                 .Include(x => x.Chapter)
