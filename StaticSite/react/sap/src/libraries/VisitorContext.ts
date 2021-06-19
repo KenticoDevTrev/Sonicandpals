@@ -36,7 +36,7 @@ export class VisitorContext {
             // Load from breadcrumbs or default to empty
             this.CurrentEpisodeState = {
                 ShowCommentary: true,
-                Mode: ComicMode.Daily,
+                Mode: ComicMode.Episode,
                 EpisodeNumber: 0,
                 EpisodeDate: new Date(),
                 TrackingAllowed : TrackingAllowedCookie != null && TrackingAllowedCookie == "true",

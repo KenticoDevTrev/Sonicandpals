@@ -30,7 +30,7 @@ export class ComicHelper {
     static RenderHomePage() : void {
     
         ReactDOM.render(
-            <ComicZone IsHomepage={true} Mode={ComicMode.Daily} />
+            <ComicZone IsHomepage={true} Mode={ComicMode.Episode} />
         , document.getElementById("ComicZone"));
     }
     static RenderComicByEpisode(EpisodeNumber : number) : void {
