@@ -339,6 +339,7 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             this.GoToNext();
         } else if(!this.state.PortraitAlertShown) {
             alert("Swipe left/right comic navigation only enabled if in landscape mode.");
+            this.visitorContext.savePortraitNoticeSeen();
             this.setState({
                 PortraitAlertShown: true
             })
