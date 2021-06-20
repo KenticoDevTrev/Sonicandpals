@@ -98,6 +98,15 @@ export class VisitorContext {
         this.saveCookies();
     }
 
+    getPortraitNoticeSeen(): boolean {
+        const Seen = this.getCookie("PortraitNoticeSeen");
+        return (Seen != null ? true : false);
+    }
+    
+    savePortraitNoticeSeen() : void {
+        document.cookie = "PortraitNoticeSeen=true;max-age=31536000";
+    }
+
     private getCookie(name: string): string | null {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);

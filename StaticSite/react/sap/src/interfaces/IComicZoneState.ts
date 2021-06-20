@@ -15,4 +15,5 @@ export interface IComicZoneState {
     NextComicDirection: ComicDirection;
     ShowShareScreen: boolean;
     ShareComic?: Comic;
+    PortraitAlertShown: boolean;
 }

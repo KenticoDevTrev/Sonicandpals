@@ -32,7 +32,8 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
             ShowComicSelect: false,
             TrackingEnabled: this.visitorContext.trackEpisode(),
             NextComicDirection: ComicDirection.Unknown,
-            ShowShareScreen: false
+            ShowShareScreen: false,
+            PortraitAlertShown: this.visitorContext.getPortraitNoticeSeen()
         };
 
         let LoadingByContext = false;
@@ -250,6 +251,15 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
                         this.visitorContext.saveEpisodeContext(x.comics[0]);
                         this.visitorContext.saveCookies();
                     }
+                    for(let c=0; c < x.comics.length; c++) {
+                        //@ts-ignore
+                        ga('send', {
+                            hitType: 'event',
+                            eventCategory: 'Comic',
+                            eventAction: 'View',
+                            eventLabel: x.comics[c].episodeNumber
+                        });
+                    }
                     this.setState({
                         Comics: x.comics,
                         Error: undefined!,
@@ -319,16 +329,30 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         }
     }
 
+    IsLandscape () {
+        return (window.outerWidth || document.documentElement.clientWidth) > (window.outerHeight || document.documentElement.clientHeight);
+    };
+
     handleSwipeLeft = (event) => {
-        if(screen && screen.availHeight < screen.availWidth) {
+        if(this.IsLandscape()) {
             //console.log("Swiped Left");
             this.GoToNext();
+        } else if(!this.state.PortraitAlertShown) {
+            alert("Swipe left/right comic navigation only enabled if in landscape mode.");
+            this.setState({
+                PortraitAlertShown: true
+            })
         }
     }
     handleSwipeRight = (event) => {
-        if(screen && screen.availHeight < screen.availWidth) {
+        if(this.IsLandscape()) {
             //console.log("Swiped Right");
             this.GoToPrevious();
+        } else {
+            alert("Swipe left/right comic navigation only enabled if in landscape mode.");
+            this.setState({
+                PortraitAlertShown: true
+            })
         }
     }
 
