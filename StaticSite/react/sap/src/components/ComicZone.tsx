@@ -349,8 +349,9 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
         if(this.IsLandscape()) {
             //console.log("Swiped Right");
             this.GoToPrevious();
-        } else {
+        } else if(!this.state.PortraitAlertShown) {
             alert("Swipe left/right comic navigation only enabled if in landscape mode.");
+            this.visitorContext.savePortraitNoticeSeen();
             this.setState({
                 PortraitAlertShown: true
             })
@@ -395,6 +396,9 @@ export class ComicZone extends React.Component<IComicZoneProps, IComicZoneState>
                             <SwitchTransition>
                                 <CSSTransition key={this.state.Comics[0].date} timeout={250} classNames={"comic-transition-" + TransitionClass}>
                                     <div>
+                                        {ComicsList.length > 1 &&
+                                            <p className="text-center">[Multiple comics, scroll down to see them all]</p>
+                                        }
                                         {ComicsList}
                                     </div>
                                 </CSSTransition>

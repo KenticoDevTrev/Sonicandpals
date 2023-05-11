@@ -32,7 +32,7 @@ namespace Sap.API.EF.EntityFramework.Implementations
                     return true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sap.API.EF", "Sap.API.EF\Sap.API.EF.csproj", "{19C03CCC-6411-4B4D-8F0F-1B87726CB41E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sap.API.EF", "Sap.API.EF\Sap.API.EF.csproj", "{19C03CCC-6411-4B4D-8F0F-1B87726CB41E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAP.Models", "..\SAP.Models\SAP.Models.csproj", "{B4912960-1507-4049-998F-A188F734A41C}"
 EndProject
